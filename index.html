@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Dr Salih's Dentpark</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-dr">Dr Salih's</span>
+                <span class="logo-clinic">Dentpark</span>
+            </a>
+            
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="doctors.html" class="nav-link">Doctors</a></li>
+                <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <a href="contact.html" class="btn btn-primary nav-btn">Book Visit</a>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" style="background-image: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.4)), url('/api/images/clinic_hero'); background-size: cover; background-position: center;">
+        <div class="container hero-container">
+            <div class="hero-content reveal fade-up">
+                <span class="subtitle">Welcome to Dentpark</span>
+                <h1 class="hero-title">Crafting Confident Smiles with Precision & Care</h1>
+                <p class="hero-text">Experience a new standard of dental care where advanced technology meets unparalleled comfort and luxury.</p>
+                <div class="hero-buttons">
+                    <a href="contact.html" class="btn btn-primary">Book Your Appointment</a>
+                    <a href="services.html" class="btn btn-outline">Explore Procedures</a>
+                </div>
+            </div>
+            <div class="hero-highlights reveal fade-left delay-1">
+                <div class="highlight-card">
+                    <i class="fa-solid fa-tooth highlight-icon"></i>
+                    <div>
+                        <h4>Advanced Technology</h4>
+                        <p>State-of-the-art dental equipment</p>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <i class="fa-solid fa-user-doctor highlight-icon"></i>
+                    <div>
+                        <h4>Expert Specialists</h4>
+                        <p>Highly qualified professionals</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Appointment Banner Section -->
+    <section id="appointment" class="section appointment bg-dark">
+        <div class="container appointment-container">
+            <div class="appointment-content reveal fade-right">
+                <h4 class="section-subtitle text-gold">Ready for a Change?</h4>
+                <h2 class="section-title text-white">Book Your Premium Consultation</h2>
+                <p class="section-text text-light-gray">Take the first step towards your perfect smile. Schedule an appointment at your convenience.</p>
+                <div class="contact-info mt-3">
+                    <div class="info-item">
+                        <i class="fa-solid fa-phone text-gold"></i>
+                        <div>
+                            <span class="d-block text-white">Call Us Directly</span>
+                            <strong class="text-gold">+1 (800) 123-4567</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="appointment-form-wrapper reveal fade-left">
+                <form id="bookingForm" class="appointment-form">
+                    <h3 class="form-title">Request a Visit</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" id="name" required placeholder="Full Name">
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" required placeholder="Phone Number">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="email" id="email" required placeholder="Email Address">
+                        </div>
+                        <div class="form-group">
+                            <select id="service" required>
+                                <option value="" disabled selected>Select Service</option>
+                                <option value="general">General Dentistry</option>
+                                <option value="cosmetic">Cosmetic Dentistry</option>
+                                <option value="orthodontics">Orthodontics</option>
+                                <option value="implants">Dental Implants</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="date" id="date" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="time" id="time" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="3" placeholder="Additional Notes or Message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Book Your Visit</button>
+                    <p class="form-msg success d-none">Thank you! Your request has been sent.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section testimonials bg-light">
+        <div class="container">
+            <div class="section-header text-center reveal fade-up">
+                <h4 class="section-subtitle">Patient Stories</h4>
+                <h2 class="section-title">What Our Patients Say</h2>
+            </div>
+            
+            <div class="testimonial-slider reveal fade-up delay-1">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"The level of care and professionalism at Dentpark is unmatched. The clinic feels like a 5-star hotel, and Dr. Salih completely transformed my smile. I couldn't be happier!"</p>
+                    <div class="patient-info">
+                        <div class="patient-img bg-pat-1"></div>
+                        <div>
+                            <h4 class="patient-name">Sarah Jenkins</h4>
+                            <p class="patient-role">Business Executive</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"I always had dental anxiety until I visited Dentpark. From the calming ambiance to the gentle touch of the doctors, it was a completely painless and reassuring experience."</p>
+                    <div class="patient-info">
+                        <div class="patient-img bg-pat-2"></div>
+                        <div>
+                            <h4 class="patient-name">James Arlington</h4>
+                            <p class="patient-role">Architect</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Getting implants used to sound terrifying, but Dr. Chen explained everything clearly and the procedure went flawlessly. The results look totally natural. Highly recommended!"</p>
+                    <div class="patient-info">
+                        <div class="patient-img bg-pat-3"></div>
+                        <div>
+                            <h4 class="patient-name">Emily Davis</h4>
+                            <p class="patient-role">Professor</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top grid-4">
+                <div class="footer-col reveal fade-up">
+                    <a href="index.html" class="logo footer-logo">
+                        <span class="logo-dr text-white">Dr Salih's</span>
+                        <span class="logo-clinic text-gold">Dentpark</span>
+                    </a>
+                    <p class="footer-text mt-2">Crafting confident smiles with precision, care, and artistry. Your premier destination for luxury dental care.</p>
+                </div>
+                <div class="footer-col reveal fade-up delay-1">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Clinic</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col reveal fade-up delay-2">
+                    <h4 class="footer-title">Contact Info</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fa-solid fa-phone"></i><span>+1 (800) 123-4567</span></li>
+                        <li><i class="fa-solid fa-envelope"></i><span>info@dentparkclinic.com</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Dr Salih's Dentpark Dental Clinic. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/18001234567" class="whatsapp-btn" target="_blank" aria-label="Chat with us on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>

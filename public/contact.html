@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Book - Dr Salih's Dentpark</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-header {
+            padding: 150px 0 80px;
+            background-color: var(--clr-primary);
+            color: var(--clr-white);
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar scrolled" id="navbar" style="background-color: var(--clr-white);">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-dr" style="color:var(--clr-primary)">Dr Salih's</span>
+                <span class="logo-clinic">Dentpark</span>
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link" style="color:var(--clr-primary)">Home</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link active" style="color:var(--clr-primary)">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="section appointment bg-dark mt-3" style="min-height: 100vh; display:flex; align-items:center;">
+        <div class="container appointment-container">
+            <div class="appointment-content reveal fade-right">
+                <h4 class="section-subtitle text-gold">Ready for a Change?</h4>
+                <h2 class="section-title text-white">Book Your Premium Consultation</h2>
+                <p class="section-text text-light-gray">Take the first step towards your perfect smile.</p>
+                <div class="contact-info mt-3">
+                    <div class="info-item mb-2" style="display:flex; gap: 15px; margin-bottom: 20px;">
+                        <i class="fa-solid fa-location-dot text-gold" style="font-size:1.5rem;"></i>
+                        <div>
+                            <span class="d-block text-white" style="font-weight:600;">Visit Us</span>
+                            <span class="text-light-gray">152 Premium Avenue, Healthcare District, NY 10001</span>
+                        </div>
+                    </div>
+                    <div class="info-item mb-2" style="display:flex; gap: 15px; margin-bottom: 20px;">
+                        <i class="fa-solid fa-phone text-gold" style="font-size:1.5rem;"></i>
+                        <div>
+                            <span class="d-block text-white" style="font-weight:600;">Call Us Directly</span>
+                            <span class="text-gold" style="font-weight:600;">+1 (800) 123-4567</span>
+                        </div>
+                    </div>
+                    <div class="info-item mb-2" style="display:flex; gap: 15px; margin-bottom: 20px;">
+                        <i class="fa-solid fa-envelope text-gold" style="font-size:1.5rem;"></i>
+                        <div>
+                            <span class="d-block text-white" style="font-weight:600;">Email Us</span>
+                            <span class="text-light-gray">info@dentparkclinic.com</span>
+                        </div>
+                    </div>
+                    <div class="info-item mb-2" style="display:flex; gap: 15px; margin-bottom: 20px;">
+                        <i class="fa-solid fa-clock text-gold" style="font-size:1.5rem;"></i>
+                        <div>
+                            <span class="d-block text-white" style="font-weight:600;">Working Hours</span>
+                            <span class="text-light-gray">Mon-Fri: 09:00 AM - 08:00 PM<br>Sat: 09:00 AM - 05:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="appointment-form-wrapper reveal fade-left">
+                <form id="bookingForm" class="appointment-form">
+                    <h3 class="form-title">Request a Visit</h3>
+                    <div class="form-row">
+                        <div class="form-group"><input type="text" id="name" required placeholder="Full Name"></div>
+                        <div class="form-group"><input type="tel" id="phone" required placeholder="Phone Number"></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><input type="email" id="email" required placeholder="Email Address"></div>
+                        <div class="form-group">
+                            <select id="service" required>
+                                <option value="" disabled selected>Select Service</option>
+                                <option value="general">General Dentistry</option>
+                                <option value="cosmetic">Cosmetic Dentistry</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><input type="date" id="date" required></div>
+                        <div class="form-group"><input type="time" id="time" required></div>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="3" placeholder="Message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Book Your Visit</button>
+                    <p class="form-msg success d-none" id="formMsg"></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="section map" style="padding: 0; display:block;">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.9663095343004!2d-74.00425878459418!3d40.74076684379132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259bf5c1654f3%3A0xc80f9cfce5383d5d!2sGoogle!5e0!3m2!1sen!2sus!4v1683134017688!5m2!1sen!2sus" width="100%" height="450" style="border:0; display:block; margin-bottom:-5px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top grid-4">
+                <div class="footer-col reveal fade-up">
+                    <a href="index.html" class="logo footer-logo">
+                        <span class="logo-dr text-white">Dr Salih's</span>
+                        <span class="logo-clinic text-gold">Dentpark</span>
+                    </a>
+                    <p class="footer-text mt-2">Crafting confident smiles with precision, care, and artistry. Your premier destination for luxury dental care.</p>
+                </div>
+                <div class="footer-col reveal fade-up delay-1">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Clinic</a></li>
+                        <li><a href="services.html">Our Services</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col reveal fade-up delay-2">
+                    <h4 class="footer-title">Contact Info</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fa-solid fa-phone"></i><span>+1 (800) 123-4567</span></li>
+                        <li><i class="fa-solid fa-envelope"></i><span>info@dentparkclinic.com</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Dr Salih's Dentpark Dental Clinic. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/18001234567" class="whatsapp-btn" target="_blank" aria-label="Chat with us on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
