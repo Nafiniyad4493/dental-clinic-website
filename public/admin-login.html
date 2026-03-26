@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | Dentpark</title>
+    <!-- Fonts and Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .login-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #1a1a1a;
+        }
+        .login-box {
+            background: #2a2a2a;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .login-logo {
+            font-size: 24px;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .login-logo .logo-dr {
+            color: #fff;
+            font-family: var(--font-fancy, 'Playfair Display', serif);
+        }
+        .login-logo .logo-clinic {
+            color: var(--gold, #dba953);
+            font-family: var(--font-fancy, 'Playfair Display', serif);
+        }
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            background: #1a1a1a;
+            border: 1px solid #444;
+            color: #fff;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: #dba953;
+        }
+        .btn-login {
+            width: 100%;
+            padding: 12px;
+            background: #dba953;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-login:hover {
+            background: #c29340;
+        }
+        .login-msg {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        .error { color: #e74c3c; }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <a href="/" class="login-logo" style="text-decoration: none;">
+                <span class="logo-dr">Dr Salih's</span>
+                <span class="logo-clinic">Dentpark</span>
+            </a>
+            <h3 style="color: #fff; margin-bottom: 20px; font-weight: 400;">Admin Portal</h3>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <input type="text" id="username" placeholder="Username" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn-login">Secure Login</button>
+                <p id="loginMsg" class="login-msg" style="display: none;"></p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const msgEl = document.getElementById('loginMsg');
+            const submitBtn = document.querySelector('.btn-login');
+            
+            submitBtn.innerText = 'Authenticating...';
+            submitBtn.disabled = true;
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const res = await fetch('/admin/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+                const data = await res.json();
+                
+                if (data.success) {
+                    window.location.href = '/admin'; // Redirect
+                } else {
+                    msgEl.style.display = 'block';
+                    msgEl.className = 'login-msg error';
+                    msgEl.innerText = data.message;
+                }
+            } catch (err) {
+                msgEl.style.display = 'block';
+                msgEl.className = 'login-msg error';
+                msgEl.innerText = 'Log in failed due to connection error.';
+            } finally {
+                submitBtn.innerText = 'Secure Login';
+                submitBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>

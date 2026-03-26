@@ -515,11 +515,11 @@ img {
 }
 
 .bg-doc-2 {
-    background-image: url('images/atiq.png');
+    background-image: url('images/dr-salih.png');
 }
 
 .bg-doc-3 {
-    background-image: url('');
+    background-image: url('images/dr-salih.png');
 }
 
 .doc-info {
@@ -1219,5 +1219,25 @@ img {
     .form-row {
         flex-direction: column;
         gap: 0;
+    }
+}
+
+/* Click-to-call Button */
+.call-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.call-btn i {
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .call-btn span {
+        display: none;
+    }
+    .call-btn {
+        padding: 8px 15px;
+        margin-right: 10px;
     }
 }

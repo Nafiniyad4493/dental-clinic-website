@@ -65,7 +65,7 @@ window.addEventListener('scroll', revealOnScroll);
 // Trigger once on load
 revealOnScroll();
 
-// Form Submission Mock
+// Form Submission logic pointing to real Node.js Backend
 const bookingForm = document.getElementById('bookingForm');
 const formMsg = document.querySelector('.form-msg');
 
@@ -79,18 +79,88 @@ if (bookingForm) {
         submitBtn.innerText = 'Sending...';
         submitBtn.disabled = true;
 
-        // Simulate API call delay
-        setTimeout(() => {
-            bookingForm.reset();
+        // Collect form data
+        const formData = {
+            name: document.getElementById('name') ? document.getElementById('name').value : '',
+            phone: document.getElementById('phone') ? document.getElementById('phone').value : '',
+            service: document.getElementById('service') ? document.getElementById('service').value : '',
+            date: document.getElementById('date') ? document.getElementById('date').value : '',
+            time: document.getElementById('time') ? document.getElementById('time').value : '',
+            message: document.getElementById('message') ? document.getElementById('message').value : ''
+        };
+
+        // Real API call
+        fetch('/api/book', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                if (formMsg) {
+                    formMsg.innerText = data.message + ' Redirecting to WhatsApp...';
+                    formMsg.classList.remove('d-none');
+                    formMsg.style.color = '#2ecc71'; // Success color
+                }
+
+                // Prepare WhatsApp Message
+                const waNumber = "<MY_NUMBER>";
+                const waMessage = `Hello Doctor, I would like to book an appointment.
+
+Name: ${formData.name}
+Phone: ${formData.phone}
+Service: ${formData.service}
+Date: ${formData.date}
+Time: ${formData.time}
+Message: ${formData.message}
+
+Please confirm my booking.`;
+
+                const encodedMessage = encodeURIComponent(waMessage);
+                const waUrl = `https://wa.me/${waNumber}?text=${encodedMessage}`;
+
+                // Redirect user after showing success
+                setTimeout(() => {
+                    try {
+                        const newWindow = window.open(waUrl, '_blank');
+                        if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+                            // Popup blocked, fallback to direct redirect
+                            window.location.href = waUrl;
+                        }
+                        bookingForm.reset();
+                        if (formMsg) {
+                            formMsg.innerText = 'Booking submitted successfully.';
+                            setTimeout(() => { formMsg.classList.add('d-none'); }, 3000);
+                        }
+                    } catch (e) {
+                        // Fallback
+                        console.error('WhatsApp redirect failed:', e);
+                        bookingForm.reset();
+                        if (formMsg) {
+                            formMsg.innerText = 'Booking submitted successfully.';
+                            setTimeout(() => { formMsg.classList.add('d-none'); }, 5000);
+                        }
+                    }
+                }, 1500);
+
+            } else {
+                throw new Error(data.message || 'Error submitting booking');
+            }
+        })
+        .catch(error => {
+            console.error('Booking error:', error);
+            if (formMsg) {
+                formMsg.innerText = error.message;
+                formMsg.classList.remove('d-none');
+                formMsg.style.color = '#e74c3c'; // Error color
+            }
+        })
+        .finally(() => {
             submitBtn.innerText = originalText;
             submitBtn.disabled = false;
-            
-            if (formMsg) formMsg.classList.remove('d-none');
-            
-            // Hide message after 5 seconds
-            setTimeout(() => {
-                if (formMsg) formMsg.classList.add('d-none');
-            }, 5000);
-        }, 1500);
+        });
     });
 }

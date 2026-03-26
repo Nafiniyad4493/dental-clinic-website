@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Dentpark</title>
+    <!-- Use same fonts and icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .admin-container {
+            padding: 100px 20px 60px;
+            min-height: 100vh;
+        }
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        .appointments-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #2a2a2a;
+            border-radius: 8px;
+            overflow: hidden;
+            color: #fff;
+        }
+        .appointments-table th, .appointments-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #444;
+        }
+        .appointments-table th {
+            background: #1a1a1a;
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+        }
+        .appointments-table tr:hover {
+            background: #333;
+        }
+        .btn-delete {
+            background: #e74c3c;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-delete:hover {
+            background: #c0392b;
+        }
+        .no-data {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+        .message-cell {
+            max-width: 250px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+<body class="bg-dark">
+    <nav class="navbar scrolled">
+        <div class="container nav-container">
+            <a href="/" class="logo">
+                <span class="logo-dr text-white">Dr Salih's</span>
+                <span class="logo-clinic text-gold">Dentpark</span>
+            </a>
+            <div class="nav-actions">
+                <button class="btn btn-primary nav-btn" onclick="logout()" style="margin-right: 15px;">Logout</button>
+                <a href="/" class="btn btn-outline nav-btn">Back to Site</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container admin-container">
+        <div class="admin-header">
+            <h2 class="section-title text-white">Appointments Dashboard</h2>
+            <button class="btn btn-outline" onclick="fetchAppointments()">Refresh Data</button>
+        </div>
+        
+        <div style="overflow-x: auto;">
+            <table class="appointments-table">
+                <thead>
+                    <tr>
+                        <th>Date & Time</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Service</th>
+                        <th>Message</th>
+                        <th>Status</th>
+                        <th>Booked On</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="appointmentsList">
+                    <tr><td colspan="7" class="no-data">Loading appointments...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        async function fetchAppointments() {
+            try {
+                const response = await fetch('/api/appointments');
+                const data = await response.json();
+                renderTable(data);
+            } catch (error) {
+                console.error('Error fetching appointments:', error);
+                document.getElementById('appointmentsList').innerHTML = '<tr><td colspan="7" class="no-data">Error loading data.</td></tr>';
+            }
+        }
+
+        function renderTable(appointments) {
+            const tbody = document.getElementById('appointmentsList');
+            if (appointments.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" class="no-data">No appointments found.</td></tr>';
+                return;
+            }
+
+            // Sort by latest booking first
+            appointments.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
+            tbody.innerHTML = appointments.map(app => {
+                const statusColor = app.status === 'Confirmed' ? '#2ecc71' : app.status === 'Completed' ? '#95a5a6' : '#dba953';
+                return `
+                <tr>
+                    <td><strong>${app.date}</strong> <br> <span class="text-gold" style="color: #dba953;">${app.time}</span></td>
+                    <td>${app.name}</td>
+                    <td>${app.phone}</td>
+                    <td><span style="text-transform: capitalize;">${app.service}</span></td>
+                    <td class="message-cell" title="${app.message || 'No message'}">${app.message || '-'}</td>
+                    <td>
+                        <select onchange="updateStatus('${app.id}', this.value)" style="background: #1a1a1a; border: 1px solid #444; color: ${statusColor}; padding: 5px; border-radius: 4px; font-weight: bold;">
+                            <option value="Pending" ${(!app.status || app.status === 'Pending') ? 'selected' : ''} style="color: #dba953;">Pending</option>
+                            <option value="Confirmed" ${app.status === 'Confirmed' ? 'selected' : ''} style="color: #2ecc71;">Confirmed</option>
+                            <option value="Completed" ${app.status === 'Completed' ? 'selected' : ''} style="color: #95a5a6;">Completed</option>
+                        </select>
+                    </td>
+                    <td><small style="color: #999;">${new Date(app.createdAt).toLocaleDateString()}</small></td>
+                    <td>
+                        <button class="btn-delete" onclick="deleteAppointment('${app.id}')">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            `}).join('');
+        }
+
+        async function updateStatus(id, newStatus) {
+            try {
+                const res = await fetch(`/api/appointments/${id}/status`, {
+                    method: 'PATCH',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ status: newStatus })
+                });
+                const result = await res.json();
+                if (result.success) {
+                    fetchAppointments();
+                } else {
+                    alert('Error updating status: ' + result.message);
+                }
+            } catch (error) {
+                console.error('Error updating status:', error);
+                alert('Connection error');
+            }
+        }
+
+        async function deleteAppointment(id) {
+            if (!confirm('Are you sure you want to delete this appointment?')) return;
+            
+            try {
+                const res = await fetch('/api/appointments/' + id, { method: 'DELETE' });
+                const result = await res.json();
+                if (result.success) {
+                    fetchAppointments();
+                } else {
+                    alert('Error deleting appointment');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        // Initialize
+        fetchAppointments();
+
+        async function logout() {
+            try {
+                const res = await fetch('/admin/logout', { method: 'POST' });
+                if (res.ok) {
+                    window.location.href = '/admin-login.html';
+                }
+            } catch (error) {
+                console.error('Logout failed:', error);
+            }
+        }
+    </script>
+</body>
+</html>
