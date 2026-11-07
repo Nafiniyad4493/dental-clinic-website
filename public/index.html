@@ -4,48 +4,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Best Dental Clinic in Poonoor | Dr Salih Dentpark</title>
-    <meta name="description" content="Premium dental clinic in Poonoor offering implants, braces, root canal and smile design. Book your appointment today with the best dentist near you.">
-    <meta name="keywords" content="dental clinic in Poonoor, best dentist near me, teeth whitening, dental implants Kerala">
+    <title>Dr. Salih's Dentpark Dental Clinic | Luxury Dental Care in Poonoor</title>
+    <meta name="description" content="Experience world-class dental care at Dr. Salih's Dentpark in Poonoor, Kerala. Painless treatments, dental implants, invisible braces, smile makeovers and 3D digital dentistry.">
+    <meta name="keywords" content="dental clinic in Poonoor, best dentist in Poonoor, Dr Salih Dentpark, dental implants Kerala, teeth whitening, invisible braces, painless root canal">
+
+    <!-- Preload First Hero Slideshow Image for Fast LCP -->
+    <link rel="preload" as="image" href="images/hero/slide-1.jpg" fetchpriority="high">
 
     <!-- Open Graph Data -->
-    <meta property="og:title" content="Best Dental Clinic in Poonoor | Dr Salih Dentpark">
-    <meta property="og:description" content="Premium dental clinic in Poonoor offering implants, braces, root canal and smile design.">
+    <meta property="og:title" content="Dr. Salih's Dentpark Dental Clinic | Poonoor">
+    <meta property="og:description" content="Experience world-class dental care at Dr. Salih's Dentpark in Poonoor. Modern technology, painless dentistry, and luxury comfort.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.dentparkclinic.com/">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80">
+    <meta property="og:image" content="images/hero/slide-1.jpg">
 
     <!-- Schema Markup -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "DentalClinic",
-      "name": "Dr Salih Dentpark",
-      "image": "https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80",
+      "name": "Dr Salih Dentpark Dental Clinic",
+      "image": "https://www.dentparkclinic.com/images/hero/slide-1.jpg",
       "@id": "https://www.dentparkclinic.com/",
       "url": "https://www.dentparkclinic.com/",
       "telephone": "+918129024493",
+      "priceRange": "$$",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Dentpark Building",
+        "streetAddress": "Dentpark Building, Main Road",
         "addressLocality": "Poonoor",
         "addressRegion": "Kerala",
         "postalCode": "673574",
         "addressCountry": "IN"
       },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday"
-        ],
-        "opens": "09:00",
-        "closes": "19:00"
-      } 
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 11.455246,
+        "longitude": 75.879503
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "19:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "17:00"
+        }
+      ]
     }
     </script>
 
@@ -63,7 +73,7 @@
 
 <body>
 
-    <!-- Navigation -->
+    <!-- Navigation Bar -->
     <nav class="navbar" id="navbar">
         <div class="container nav-container">
             <a href="#home" class="logo" aria-label="Dr Salih Dentpark Homepage">
@@ -74,11 +84,12 @@
             <ul class="nav-menu" id="navMenu">
                 <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
                 <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="#doctors" class="nav-link">Doctors</a></li>
+                <li class="nav-item"><a href="#why-choose-us" class="nav-link">Why Us</a></li>
                 <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="#doctors" class="nav-link">Doctors</a></li>
                 <li class="nav-item"><a href="#gallery" class="nav-link">Gallery</a></li>
                 <li class="nav-item"><a href="#testimonials" class="nav-link">Reviews</a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                <li class="nav-item"><a href="#location" class="nav-link">Location</a></li>
 
                 <!-- Mobile Drawer CTA Actions -->
                 <li class="mobile-menu-cta">
@@ -114,39 +125,106 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header id="home" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="container hero-container">
-            <div class="hero-content reveal fade-up">
-                <span class="subtitle"><i class="fa-solid fa-sparkles text-gold"></i> Welcome to Dentpark &bull; Poonoor</span>
-                <h1 class="hero-title">Crafting Confident Smiles with Precision & Care</h1>
-                <p class="hero-text">Experience a new standard of dental care where advanced technology meets unparalleled comfort and luxury in Poonoor, Kerala.</p>
-                <div class="hero-buttons">
-                    <a href="#appointment" class="btn btn-primary"><i class="fa-regular fa-calendar-check"></i> Book Your Appointment</a>
-                    <a href="#services" class="btn btn-outline">Explore Procedures <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
+    <!-- Dynamic Full-Screen Hero Section -->
+    <header id="home" class="hero hero-fullscreen" aria-label="Hero Section">
+        
+        <!-- Full-Screen Dynamic Background Slideshow (Completely Fits Home Page) -->
+        <div class="hero-slider" id="heroSlider" aria-roledescription="carousel" aria-label="Clinic Highlights Showcase">
+            
+            <!-- Slide 1: Modern Luxury Clinic Interior (Active) -->
+            <div class="hero-slide active" role="group" aria-roledescription="slide" aria-label="1 of 5: Modern Luxury Clinic Interior" data-index="0">
+                <img src="images/hero/slide-1.jpg" alt="Modern Luxury Dental Clinic Operatory at Dr Salih Dentpark Poonoor" class="hero-slide-img" fetchpriority="high">
+                <div class="hero-slide-overlay"></div>
             </div>
 
-            <!-- Floating highlight cards -->
-            <div class="hero-highlights reveal fade-left delay-1">
-                <div class="highlight-card">
-                    <i class="fa-solid fa-tooth highlight-icon"></i>
-                    <div>
-                        <h4>Advanced Technology</h4>
-                        <p>State-of-the-art dental equipment & 3D imaging</p>
-                    </div>
-                </div>
-                <div class="highlight-card">
-                    <i class="fa-solid fa-user-doctor highlight-icon"></i>
-                    <div>
-                        <h4>Expert Specialists</h4>
-                        <p>Over 15+ years of specialized clinical excellence</p>
-                    </div>
+            <!-- Slide 2: Dentist Treating Patient -->
+            <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="2 of 5: Expert Dental Procedure" data-index="1">
+                <img src="images/hero/slide-2.jpg" alt="Specialist Dental Surgeon Treating Patient with Gentle Care" class="hero-slide-img" loading="lazy">
+                <div class="hero-slide-overlay"></div>
+            </div>
+
+            <!-- Slide 3: Radiant Healthy Smile -->
+            <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="3 of 5: Radiant Smile Makeover" data-index="2">
+                <img src="images/hero/slide-3.jpg" alt="Confident and Radiant Healthy Smile After Cosmetic Treatment" class="hero-slide-img" loading="lazy">
+                <div class="hero-slide-overlay"></div>
+            </div>
+
+            <!-- Slide 4: State-of-the-Art Dental Technology -->
+            <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="4 of 5: Advanced Dental Technology" data-index="3">
+                <img src="images/hero/slide-4.jpg" alt="Advanced Digital 3D Dental Equipment and Sterilization Facilities" class="hero-slide-img" loading="lazy">
+                <div class="hero-slide-overlay"></div>
+            </div>
+
+            <!-- Slide 5: Private Consultation Lounge -->
+            <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="5 of 5: Relaxed Consultation Suite" data-index="4">
+                <img src="images/hero/slide-5.jpg" alt="Tranquil and Comfortable Patient Reception and Consultation Suite" class="hero-slide-img" loading="lazy">
+                <div class="hero-slide-overlay"></div>
+            </div>
+        </div>
+
+        <!-- Clean, Minimalist Content Layer: Just Heading and CTAs -->
+        <div class="container hero-container">
+            <div class="hero-content reveal fade-up">
+                <h1 class="hero-title">
+                    Your Smile Deserves <br>
+                    <span class="gold-gradient-text">The Best Care</span>
+                </h1>
+
+                <div class="hero-buttons">
+                    <a href="#appointment" class="btn btn-primary hero-btn">
+                        <i class="fa-regular fa-calendar-check"></i> Book an Appointment
+                    </a>
+                    <a href="services.html" class="btn btn-outline hero-btn hero-btn-secondary">
+                        Explore Our Services <i class="fa-solid fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
+
+        <!-- Navigation Arrows Pinned to Screen Edges -->
+        <button class="hero-nav-arrow prev-slide" id="heroPrevBtn" type="button" aria-label="Previous Slide">
+            <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+        </button>
+        <button class="hero-nav-arrow next-slide" id="heroNextBtn" type="button" aria-label="Next Slide">
+            <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+        </button>
+
+        <!-- Slide Indicator Dots -->
+        <div class="hero-bottom-controls">
+            <div class="hero-dots" id="heroDots" role="tablist" aria-label="Slideshow pagination">
+                <button class="hero-dot active" type="button" role="tab" aria-selected="true" aria-label="Slide 1" data-slide="0"></button>
+                <button class="hero-dot" type="button" role="tab" aria-selected="false" aria-label="Slide 2" data-slide="1"></button>
+                <button class="hero-dot" type="button" role="tab" aria-selected="false" aria-label="Slide 3" data-slide="2"></button>
+                <button class="hero-dot" type="button" role="tab" aria-selected="false" aria-label="Slide 4" data-slide="3"></button>
+                <button class="hero-dot" type="button" role="tab" aria-selected="false" aria-label="Slide 5" data-slide="4"></button>
+            </div>
+        </div>
     </header>
+
+    <!-- Quick Stats Prestige Bar -->
+    <section class="hero-stats-bar" aria-label="Dentpark Clinic Key Statistics">
+        <div class="container stats-bar-container">
+            <div class="stat-item reveal fade-up">
+                <span class="stat-number">15<span class="text-gold">+</span></span>
+                <span class="stat-label">Years of Clinical Excellence</span>
+            </div>
+            <div class="stat-separator"></div>
+            <div class="stat-item reveal fade-up delay-1">
+                <span class="stat-number">5,000<span class="text-gold">+</span></span>
+                <span class="stat-label">Happy Smiles Transformed</span>
+            </div>
+            <div class="stat-separator"></div>
+            <div class="stat-item reveal fade-up delay-2">
+                <span class="stat-number">4.9<span class="text-gold">★</span></span>
+                <span class="stat-label">Google Rating (500+ Reviews)</span>
+            </div>
+            <div class="stat-separator"></div>
+            <div class="stat-item reveal fade-up delay-3">
+                <span class="stat-number">100<span class="text-gold">%</span></span>
+                <span class="stat-label">Hospital-Grade Sterilization</span>
+            </div>
+        </div>
+    </section>
 
     <!-- About Us Section -->
     <section id="about" class="section about">
@@ -159,19 +237,134 @@
                 </div>
             </div>
             <div class="about-content reveal fade-left">
-                <span class="section-subtitle">Our Story</span>
-                <h2 class="section-title">A Legacy of Premium Dental Care</h2>
-                <p class="section-text">At Dr Salih's Dentpark Dental Clinic, we believe that a healthy smile is a beautiful smile. Founded on the principles of clinical excellence and compassion, our clinic has been at the forefront of modern dentistry in Poonoor.</p>
-                <p class="section-text">Our mission is to provide personalized, high-end dental care in a relaxing and luxurious environment. We combine state-of-the-art technology with a gentle touch to ensure an anxiety-free, comfortable experience for every patient.</p>
+                <span class="section-subtitle">About Dentpark</span>
+                <h2 class="section-title">Where World-Class Dentistry Meets Gentle Care</h2>
+                <p class="section-text">For over 15 years, Dr. Salih's Dentpark has brought international standards of dental healthcare to Poonoor. We merge high-precision digital dentistry with a serene, spa-like atmosphere to ensure your visit is completely anxiety-free and comfortable.</p>
 
                 <ul class="feature-list">
-                    <li><i class="fa-solid fa-check"></i> Modern Equipment & Advanced Digital Techniques</li>
-                    <li><i class="fa-solid fa-check"></i> Highly Experienced Specialists & Surgeons</li>
-                    <li><i class="fa-solid fa-check"></i> Strict Multi-Tier Hygiene & Sterilization Protocols</li>
-                    <li><i class="fa-solid fa-check"></i> Relaxing, Spa-like Ambiance & Comfort</li>
+                    <li><i class="fa-solid fa-check"></i> Digital 3D Diagnosis & Custom Treatment Planning</li>
+                    <li><i class="fa-solid fa-check"></i> Highly Experienced Specialists & Dental Surgeons</li>
+                    <li><i class="fa-solid fa-check"></i> Hospital-Grade Multi-Stage Sterilization Protocols</li>
+                    <li><i class="fa-solid fa-check"></i> Calming Ambiance Designed for Stress-Free Care</li>
                 </ul>
 
-                <a href="#doctors" class="btn btn-secondary mt-3">Meet Our Specialists <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="about.html" class="btn btn-secondary mt-3">Learn More About Dentpark <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-choose-us" class="section why-us bg-light">
+        <div class="container">
+            <div class="section-header text-center reveal fade-up">
+                <span class="section-subtitle">The Dentpark Advantage</span>
+                <h2 class="section-title">Why Patients Choose Our Clinic</h2>
+                <p class="section-description">We combine clinical expertise with patient-first hospitality to deliver exceptional smiles that last a lifetime.</p>
+            </div>
+
+            <div class="why-us-grid">
+                <!-- Feature 1 -->
+                <div class="why-us-card reveal fade-up">
+                    <div class="why-us-icon">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h3 class="why-us-title">Painless Dentistry</h3>
+                    <p class="why-us-text">Gentle anaesthetic techniques and micro-invasive instruments ensure smooth, virtually pain-free dental procedures.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="why-us-card reveal fade-up delay-1">
+                    <div class="why-us-icon">
+                        <i class="fa-solid fa-laptop-medical"></i>
+                    </div>
+                    <h3 class="why-us-title">Digital 3D Technology</h3>
+                    <p class="why-us-text">High-resolution intraoral scanners and digital imaging provide pinpoint accuracy for implants and smile design.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="why-us-card reveal fade-up delay-2">
+                    <div class="why-us-icon">
+                        <i class="fa-solid fa-shield-virus"></i>
+                    </div>
+                    <h3 class="why-us-title">Hospital-Grade Safety</h3>
+                    <p class="why-us-text">Strict Class-B autoclave sterilization and single-use consumables guarantee maximum hygiene and patient safety.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="why-us-card reveal fade-up delay-3">
+                    <div class="why-us-icon">
+                        <i class="fa-solid fa-hand-holding-dollar"></i>
+                    </div>
+                    <h3 class="why-us-title">Transparent & Honest Care</h3>
+                    <p class="why-us-text">Clear treatment explanations, transparent pricing, and zero unexpected charges before any procedure begins.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section services">
+        <div class="container">
+            <div class="section-header text-center reveal fade-up">
+                <span class="section-subtitle">What We Offer</span>
+                <h2 class="section-title">Comprehensive Dental Solutions</h2>
+                <p class="section-description">From routine preventative care to advanced full-mouth restorations, every treatment is tailored with gentle precision.</p>
+            </div>
+
+            <div class="grid-3">
+                <!-- Service 1 -->
+                <div class="service-card reveal fade-up">
+                    <div class="service-icon"><i class="fa-solid fa-tooth"></i></div>
+                    <h3 class="service-title">General Dentistry</h3>
+                    <p class="service-desc">Complete exams, painless scaling, deep cleanings, and proactive cavity prevention.</p>
+                    <a href="services.html" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card reveal fade-up delay-1">
+                    <div class="service-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <h3 class="service-title">Cosmetic Dentistry</h3>
+                    <p class="service-desc">Custom porcelain veneers, aesthetic bonding, and comprehensive smile makeovers.</p>
+                    <a href="services.html" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card reveal fade-up delay-2">
+                    <div class="service-icon"><i class="fa-solid fa-teeth-open"></i></div>
+                    <h3 class="service-title">Orthodontics & Aligners</h3>
+                    <p class="service-desc">Discreet invisible clear aligners and modern braces for beautifully aligned teeth.</p>
+                    <a href="services.html" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card reveal fade-up">
+                    <div class="service-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                    <h3 class="service-title">Dental Implants</h3>
+                    <p class="service-desc">Permanent, natural-looking titanium root replacements and biocompatible crowns.</p>
+                    <a href="services.html" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card reveal fade-up delay-1">
+                    <div class="service-icon"><i class="fa-regular fa-face-smile-beam"></i></div>
+                    <h3 class="service-title">Teeth Whitening</h3>
+                    <p class="service-desc">Fast, professional in-office laser whitening for a radiant smile up to 8 shades whiter.</p>
+                    <a href="services.html" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card reveal fade-up delay-2">
+                    <div class="service-icon"><i class="fa-solid fa-kit-medical"></i></div>
+                    <h3 class="service-title">Emergency Dental Care</h3>
+                    <p class="service-desc">Immediate, gentle relief for acute toothaches, dental trauma, chipped teeth, and pain.</p>
+                    <a href="services.html" class="service-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="text-center mt-4 reveal fade-up">
+                <a href="services.html" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-teeth"></i> Explore All Procedures & Treatments <i class="fa-solid fa-arrow-right"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -182,7 +375,7 @@
             <div class="section-header text-center reveal fade-up">
                 <span class="section-subtitle">Our Specialists</span>
                 <h2 class="section-title">Meet the Experts Behind Your Smile</h2>
-                <p class="section-description">Our team of highly qualified dental specialists is dedicated to providing you with the highest standard of personalized clinical care.</p>
+                <p class="section-description">Dedicated dental specialists combining decades of clinical excellence with warm, compassionate patient care.</p>
             </div>
 
             <div class="grid-3">
@@ -206,12 +399,12 @@
                     <div class="doc-img bg-doc-2" role="img" aria-label="Dentpark Orthodontist Specialist"></div>
                     <div class="doc-info">
                         <h3 class="doc-name">Dr. Atiq</h3>
-                        <p class="doc-spec">Orthodontist</p>
+                        <p class="doc-spec">Orthodontist & Aligner Specialist</p>
                         <p class="doc-qual">BDS, MDS (Orthodontics)</p>
                         <p class="doc-exp">12 Years Clinical Experience</p>
                         <div class="doc-social">
-                            <a href="#" aria-label="Orthodontist LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                            <a href="#" aria-label="Orthodontist Instagram"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" aria-label="Dr Atiq LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Dr Atiq Instagram"><i class="fa-brands fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
@@ -221,154 +414,21 @@
                     <div class="doc-img bg-doc-3" role="img" aria-label="Dentpark Implantologist Specialist"></div>
                     <div class="doc-info">
                         <h3 class="doc-name">Dr. Michael Chen</h3>
-                        <p class="doc-spec">Implantologist</p>
+                        <p class="doc-spec">Consultant Implantologist</p>
                         <p class="doc-qual">DDS, Fellow ICOI</p>
                         <p class="doc-exp">15 Years Clinical Experience</p>
                         <div class="doc-social">
-                            <a href="#" aria-label="Implantologist LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                            <a href="#" aria-label="Implantologist Instagram"><i class="fa-brands fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="section services">
-        <div class="container">
-            <div class="section-header text-center reveal fade-up">
-                <span class="section-subtitle">What We Offer</span>
-                <h2 class="section-title">Comprehensive Dental Solutions</h2>
-                <p class="section-description">From routine preventative check-ups to complex full-mouth restorations, we offer a full spectrum of dental treatments tailored to your unique smile.</p>
-            </div>
-
-            <div class="grid-3">
-                <!-- Service 1 -->
-                <div class="service-card reveal fade-up">
-                    <div class="service-icon"><i class="fa-solid fa-tooth"></i></div>
-                    <h3 class="service-title">General Dentistry</h3>
-                    <p class="service-desc">Comprehensive oral examinations, painless scaling, preventative cleanings, and fluoride treatments.</p>
-                    <a href="#appointment" class="service-link">Book Consult <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-
-                <!-- Service 2 -->
-                <div class="service-card reveal fade-up delay-1">
-                    <div class="service-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-                    <h3 class="service-title">Cosmetic Dentistry</h3>
-                    <p class="service-desc">Transform your smile with custom porcelain veneers, smile makeovers, and composite aesthetic bonding.</p>
-                    <a href="#appointment" class="service-link">Book Consult <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="service-card reveal fade-up delay-2">
-                    <div class="service-icon"><i class="fa-solid fa-teeth-open"></i></div>
-                    <h3 class="service-title">Orthodontics</h3>
-                    <p class="service-desc">Discreetly straighten crooked teeth and correct bite misalignments using clear aligners and modern braces.</p>
-                    <a href="#appointment" class="service-link">Book Consult <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-
-                <!-- Service 4 -->
-                <div class="service-card reveal fade-up">
-                    <div class="service-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
-                    <h3 class="service-title">Dental Implants</h3>
-                    <p class="service-desc">Permanent, natural-looking tooth replacements using premium titanium fixtures and biocompatible crowns.</p>
-                    <a href="#appointment" class="service-link">Book Consult <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-
-                <!-- Service 5 -->
-                <div class="service-card reveal fade-up delay-1">
-                    <div class="service-icon"><i class="fa-regular fa-face-smile-beam"></i></div>
-                    <h3 class="service-title">Teeth Whitening</h3>
-                    <p class="service-desc">Professional in-office laser and power whitening for a brilliant, dazzling smile up to 8 shades whiter.</p>
-                    <a href="#appointment" class="service-link">Book Consult <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-
-                <!-- Service 6 -->
-                <div class="service-card reveal fade-up delay-2">
-                    <div class="service-icon"><i class="fa-solid fa-kit-medical"></i></div>
-                    <h3 class="service-title">Emergency Care</h3>
-                    <p class="service-desc">Rapid and gentle pain relief for severe toothaches, dental trauma, fractures, and urgent dental issues.</p>
-                    <a href="#appointment" class="service-link">Book Consult <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Appointment Banner Section -->
-    <section id="appointment" class="section appointment bg-dark">
-        <div class="container appointment-container">
-            <div class="appointment-content reveal fade-right">
-                <span class="section-subtitle text-gold">Ready for a Change?</span>
-                <h2 class="section-title text-white">Book Your Premium Consultation</h2>
-                <p class="section-text text-light-gray">Take the first step toward your perfect, confident smile. Schedule an appointment at your convenience and our patient concierge will confirm your slot.</p>
-                <div class="contact-info mt-3">
-                    <div class="info-item">
-                        <i class="fa-solid fa-phone text-gold"></i>
-                        <div>
-                            <span class="d-block text-white" style="font-size: 0.9rem;">Call Us Directly</span>
-                            <a href="tel:+918129024493" class="text-gold" style="font-weight: 700; text-decoration: none; font-size: 1.25rem;">+91 8129 024 493</a>
-                        </div>
-                    </div>
-                    <div class="info-item" style="margin-top: 1.25rem;">
-                        <i class="fa-solid fa-location-dot text-gold"></i>
-                        <div>
-                            <span class="d-block text-white" style="font-size: 0.9rem;">Clinic Location</span>
-                            <span class="text-light-gray" style="font-weight: 500;">Dentpark Building, Poonoor, Kerala 673574</span>
+                            <a href="#" aria-label="Dr Michael Chen LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Dr Michael Chen Instagram"><i class="fa-brands fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="appointment-form-wrapper reveal fade-left">
-                <form id="bookingForm" class="appointment-form" novalidate>
-                    <h3 class="form-title">Request a Visit</h3>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name" class="form-label">Full Name *</label>
-                            <input type="text" id="name" name="name" required placeholder="e.g. Rahul Sharma" autocomplete="name">
-                        </div>
-                        <div class="form-group">
-                            <label for="phone" class="form-label">Phone Number *</label>
-                            <input type="tel" id="phone" name="phone" required placeholder="e.g. +91 9876543210" autocomplete="tel">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="service" class="form-label">Select Dental Service *</label>
-                        <select id="service" name="service" required>
-                            <option value="" disabled selected>Choose a Service</option>
-                            <option value="general">General Dentistry & Cleaning</option>
-                            <option value="cosmetic">Cosmetic Dentistry & Veneers</option>
-                            <option value="orthodontics">Orthodontics & Clear Braces</option>
-                            <option value="implants">Dental Implants</option>
-                            <option value="whitening">Professional Teeth Whitening</option>
-                            <option value="emergency">Emergency Dental Care</option>
-                        </select>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="date" class="form-label">Preferred Date *</label>
-                            <input type="date" id="date" name="date" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="time" class="form-label">Preferred Time *</label>
-                            <input type="time" id="time" name="time" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message" class="form-label">Additional Notes (Optional)</label>
-                        <textarea id="message" name="message" rows="3" placeholder="Tell us about any specific concerns or pain..."></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary btn-block">
-                        <i class="fa-regular fa-calendar-check"></i> Book Your Visit
-                    </button>
-                    <p class="form-msg success d-none" role="alert"></p>
-                </form>
+            <div class="text-center mt-4 reveal fade-up">
+                <a href="doctors.html" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-user-doctor"></i> View Doctor Profiles & Credentials <i class="fa-solid fa-arrow-right"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -377,37 +437,43 @@
     <section id="gallery" class="section gallery">
         <div class="container">
             <div class="section-header text-center reveal fade-up">
-                <span class="section-subtitle">Our Clinic</span>
-                <h2 class="section-title">A Luxurious Environment</h2>
-                <p class="section-description">We designed our clinic to feel less like a hospital and more like a luxury wellness retreat. Relax and unwind in our calming spaces in Poonoor.</p>
+                <span class="section-subtitle">Our Clinic Ambiance</span>
+                <h2 class="section-title">Designed for Your Utmost Comfort</h2>
+                <p class="section-description">Step into a relaxing, contemporary dental lounge designed to put you completely at ease from the moment you arrive.</p>
             </div>
 
             <div class="gallery-grid">
                 <div class="gallery-item item-1 reveal fade-up bg-gal-1" role="img" aria-label="Dentpark Reception Desk">
                     <div class="gallery-overlay">
-                        <span>Reception & Lounge</span>
+                        <span>Reception & Welcome Lounge</span>
                     </div>
                 </div>
                 <div class="gallery-item item-2 reveal fade-up delay-1 bg-gal-2" role="img" aria-label="Dentpark Waiting Lounge">
                     <div class="gallery-overlay">
-                        <span>Waiting Lounge</span>
+                        <span>Relaxing Patient Lounge</span>
                     </div>
                 </div>
                 <div class="gallery-item item-3 reveal fade-up delay-2 bg-gal-3" role="img" aria-label="Dentpark Operatory Suite">
                     <div class="gallery-overlay">
-                        <span>Treatment Suite</span>
+                        <span>Luxury Operatory Suite</span>
                     </div>
                 </div>
                 <div class="gallery-item item-4 reveal fade-up bg-gal-4" role="img" aria-label="Dentpark Advanced Dental Equipment">
                     <div class="gallery-overlay">
-                        <span>Advanced Equipment</span>
+                        <span>Advanced 3D Technology</span>
                     </div>
                 </div>
                 <div class="gallery-item item-5 reveal fade-up delay-1 bg-gal-5" role="img" aria-label="Dentpark Private Consultation Area">
                     <div class="gallery-overlay">
-                        <span>Consultation Area</span>
+                        <span>Private Doctor Consultation</span>
                     </div>
                 </div>
+            </div>
+
+            <div class="text-center mt-4 reveal fade-up">
+                <a href="gallery.html" class="btn btn-outline-gold" style="display: inline-flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-images"></i> Explore Full Clinic Gallery <i class="fa-solid fa-arrow-right"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -420,7 +486,7 @@
                     <i class="fa-solid fa-star text-gold"></i> Rated 4.9/5 based on Google Reviews
                 </span>
                 <h2 class="section-title">What Our Patients Say</h2>
-                <p class="section-description">Real feedback from genuine patients who experienced our gentle, luxury dental care.</p>
+                <p class="section-description">Real feedback from genuine patients who experienced our gentle, luxury dental care in Poonoor.</p>
             </div>
 
             <div class="testimonial-slider reveal fade-up delay-1">
@@ -478,13 +544,123 @@
 
             <div class="text-center mt-4 reveal fade-up delay-2">
                 <a href="https://maps.google.com/?q=Dentpark+Clinic" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
-                    <i class="fa-brands fa-google"></i> View All Reviews on Google Maps
+                    <i class="fa-brands fa-google"></i> View All Google Reviews
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Footer / Contact Section -->
+    <!-- Appointment Booking Form Section -->
+    <section id="appointment" class="section appointment bg-dark">
+        <div class="container appointment-container">
+            <div class="appointment-content reveal fade-right">
+                <span class="section-subtitle text-gold">Ready for a Confident Smile?</span>
+                <h2 class="section-title text-white">Book Your Premium Consultation</h2>
+                <p class="section-text text-light-gray">Take the first step toward optimal dental health and a radiant smile. Choose your preferred slot below and our patient care team will promptly confirm your visit.</p>
+                
+                <div class="contact-info mt-3">
+                    <div class="info-item">
+                        <i class="fa-solid fa-phone text-gold"></i>
+                        <div>
+                            <span class="d-block text-white" style="font-size: 0.9rem;">Call Us Directly</span>
+                            <a href="tel:+918129024493" class="text-gold" style="font-weight: 700; text-decoration: none; font-size: 1.25rem;">+91 8129 024 493</a>
+                        </div>
+                    </div>
+                    <div class="info-item" style="margin-top: 1.25rem;">
+                        <i class="fa-solid fa-location-dot text-gold"></i>
+                        <div>
+                            <span class="d-block text-white" style="font-size: 0.9rem;">Clinic Location</span>
+                            <span class="text-light-gray" style="font-weight: 500;">Dentpark Building, Main Road, Poonoor, Kerala 673574</span>
+                        </div>
+                    </div>
+                    <div class="info-item" style="margin-top: 1.25rem;">
+                        <i class="fa-regular fa-clock text-gold"></i>
+                        <div>
+                            <span class="d-block text-white" style="font-size: 0.9rem;">Working Hours</span>
+                            <span class="text-light-gray" style="font-weight: 500;">Mon - Fri: 9:00 AM - 7:00 PM | Sat: 9:00 AM - 5:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="appointment-form-wrapper reveal fade-left">
+                <form id="bookingForm" class="appointment-form" novalidate>
+                    <h3 class="form-title">Request an Appointment</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Full Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="e.g. Rahul Sharma" autocomplete="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="e.g. +91 9876543210" autocomplete="tel">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service" class="form-label">Select Dental Service *</label>
+                        <select id="service" name="service" required>
+                            <option value="" disabled selected>Choose a Service</option>
+                            <option value="general">General Dentistry & Cleaning</option>
+                            <option value="cosmetic">Cosmetic Dentistry & Veneers</option>
+                            <option value="orthodontics">Orthodontics & Clear Braces</option>
+                            <option value="implants">Dental Implants</option>
+                            <option value="whitening">Professional Teeth Whitening</option>
+                            <option value="emergency">Emergency Dental Care</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date" class="form-label">Preferred Date *</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="time" class="form-label">Preferred Time *</label>
+                            <input type="time" id="time" name="time" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" class="form-label">Additional Notes (Optional)</label>
+                        <textarea id="message" name="message" rows="3" placeholder="Tell us about any specific tooth pain or concerns..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <i class="fa-regular fa-calendar-check"></i> Book Your Visit
+                    </button>
+                    <p class="form-msg success d-none" role="alert"></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clinic Location & Google Maps Section -->
+    <section id="location" class="section map-section bg-light" style="padding-bottom: 0;">
+        <div class="container">
+            <div class="section-header text-center reveal fade-up">
+                <span class="section-subtitle">Convenient Location</span>
+                <h2 class="section-title">Visit Dr. Salih's Dentpark</h2>
+                <p class="section-description">Easily accessible in Poonoor, Kozhikode, Kerala with dedicated parking and a welcoming reception.</p>
+            </div>
+        </div>
+        
+        <div class="map-embed-wrapper reveal fade-up">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3910.638706385311!2d75.879503!3d11.455246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba661bf46048119%3A0xe4a9f240ea89b1c!2sPoonoor%2C%20Kerala!5e0!3m2!1sen!2sin!4v1683134017688!5m2!1sen!2sin" 
+                width="100%" 
+                height="420" 
+                style="border: 0; display: block;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade" 
+                title="Google Maps Location of Dr Salih Dentpark Dental Clinic Poonoor">
+            </iframe>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer id="contact" class="footer">
         <div class="container">
             <div class="footer-top grid-4">
@@ -507,9 +683,10 @@
                     <ul class="footer-links">
                         <li><a href="#home"><i class="fa-solid fa-angle-right"></i> Home</a></li>
                         <li><a href="#about"><i class="fa-solid fa-angle-right"></i> About Clinic</a></li>
-                        <li><a href="#services"><i class="fa-solid fa-angle-right"></i> Our Services</a></li>
-                        <li><a href="#doctors"><i class="fa-solid fa-angle-right"></i> Meet the Doctors</a></li>
-                        <li><a href="#gallery"><i class="fa-solid fa-angle-right"></i> Clinic Gallery</a></li>
+                        <li><a href="#why-choose-us"><i class="fa-solid fa-angle-right"></i> Why Choose Us</a></li>
+                        <li><a href="services.html"><i class="fa-solid fa-angle-right"></i> Dental Services</a></li>
+                        <li><a href="doctors.html"><i class="fa-solid fa-angle-right"></i> Specialist Doctors</a></li>
+                        <li><a href="gallery.html"><i class="fa-solid fa-angle-right"></i> Clinic Gallery</a></li>
                         <li><a href="#appointment"><i class="fa-solid fa-angle-right"></i> Book Appointment</a></li>
                     </ul>
                 </div>
@@ -559,7 +736,7 @@
         </a>
     </div>
 
-    <!-- Scripts -->
+    <!-- Frontend Script -->
     <script src="script.js"></script>
 </body>
 

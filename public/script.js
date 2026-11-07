@@ -161,6 +161,174 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // -------------------------------------------------------------------------
+    // 3B. DYNAMIC HERO SLIDESHOW CONTROLLER
+    // -------------------------------------------------------------------------
+    const heroSlides = document.querySelectorAll('.showcase-slide, .hero-slide');
+    const heroDots = document.querySelectorAll('.showcase-dot, .hero-dot');
+    const heroPrevBtn = document.getElementById('heroPrevBtn');
+    const heroNextBtn = document.getElementById('heroNextBtn');
+    const heroPauseBtn = document.getElementById('heroPauseBtn');
+    const heroShowcase = document.getElementById('heroShowcase') || document.getElementById('heroSlider') || document.getElementById('home');
+    const currentNumEl = document.querySelector('#showcaseCounter .current-num');
+
+    if (heroSlides.length > 0) {
+        let currentSlide = 0;
+        let slideInterval = null;
+        const slideDelay = 4500; // 4.5 seconds
+        let isUserPaused = false;
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        const updateSlideView = (index) => {
+            currentSlide = (index + heroSlides.length) % heroSlides.length;
+
+            heroSlides.forEach((slide, i) => {
+                if (i === currentSlide) {
+                    slide.classList.add('active');
+                    slide.setAttribute('aria-hidden', 'false');
+                } else {
+                    slide.classList.remove('active');
+                    slide.setAttribute('aria-hidden', 'true');
+                }
+            });
+
+            heroDots.forEach((dot, i) => {
+                if (i === currentSlide) {
+                    dot.classList.add('active');
+                    dot.setAttribute('aria-selected', 'true');
+                } else {
+                    dot.classList.remove('active');
+                    dot.setAttribute('aria-selected', 'false');
+                }
+            });
+
+            if (currentNumEl) {
+                currentNumEl.textContent = String(currentSlide + 1).padStart(2, '0');
+            }
+        };
+
+        const nextSlide = () => {
+            updateSlideView(currentSlide + 1);
+        };
+
+        const prevSlide = () => {
+            updateSlideView(currentSlide - 1);
+        };
+
+        const startAutoSlide = () => {
+            if (isUserPaused || prefersReducedMotion) return;
+            stopAutoSlide();
+            slideInterval = setInterval(nextSlide, slideDelay);
+        };
+
+        const stopAutoSlide = () => {
+            if (slideInterval) {
+                clearInterval(slideInterval);
+                slideInterval = null;
+            }
+        };
+
+        const resetTimer = () => {
+            stopAutoSlide();
+            startAutoSlide();
+        };
+
+        // Arrow button click listeners
+        if (heroNextBtn) {
+            heroNextBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                nextSlide();
+                resetTimer();
+            });
+        }
+
+        if (heroPrevBtn) {
+            heroPrevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                prevSlide();
+                resetTimer();
+            });
+        }
+
+        // Indicator dots click listeners
+        heroDots.forEach((dot, idx) => {
+            dot.addEventListener('click', (e) => {
+                e.preventDefault();
+                updateSlideView(idx);
+                resetTimer();
+            });
+        });
+
+        // Pause / Play button toggle for Accessibility
+        if (heroPauseBtn) {
+            heroPauseBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                isUserPaused = !isUserPaused;
+                if (isUserPaused) {
+                    stopAutoSlide();
+                    heroPauseBtn.innerHTML = '<i class="fa-solid fa-play" aria-hidden="true"></i>';
+                    heroPauseBtn.setAttribute('aria-label', 'Play slideshow');
+                } else {
+                    startAutoSlide();
+                    heroPauseBtn.innerHTML = '<i class="fa-solid fa-pause" aria-hidden="true"></i>';
+                    heroPauseBtn.setAttribute('aria-label', 'Pause slideshow');
+                }
+            });
+        }
+
+        // Pause on mouse hover & focus
+        if (heroShowcase) {
+            heroShowcase.addEventListener('mouseenter', stopAutoSlide);
+            heroShowcase.addEventListener('mouseleave', () => {
+                if (!isUserPaused) startAutoSlide();
+            });
+            heroShowcase.addEventListener('focusin', stopAutoSlide);
+            heroShowcase.addEventListener('focusout', () => {
+                if (!isUserPaused) startAutoSlide();
+            });
+
+            // Keyboard navigation (Arrow keys when hero showcase has focus)
+            heroShowcase.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight') {
+                    nextSlide();
+                    resetTimer();
+                } else if (e.key === 'ArrowLeft') {
+                    prevSlide();
+                    resetTimer();
+                }
+            });
+
+            // Touch Swipe Support for Mobile & Tablets
+            let touchStartX = 0;
+            let touchEndX = 0;
+            const swipeThreshold = 35;
+
+            heroShowcase.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+                stopAutoSlide();
+            }, { passive: true });
+
+            heroShowcase.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                const deltaX = touchEndX - touchStartX;
+                if (Math.abs(deltaX) > swipeThreshold) {
+                    if (deltaX < 0) {
+                        nextSlide(); // Swiped left -> next
+                    } else {
+                        prevSlide(); // Swiped right -> prev
+                    }
+                }
+                if (!isUserPaused) startAutoSlide();
+            }, { passive: true });
+        }
+
+        // Initialize Slideshow
+        updateSlideView(0);
+        if (!prefersReducedMotion) {
+            startAutoSlide();
+        }
+    }
+
+    // -------------------------------------------------------------------------
     // 4. APPOINTMENT BOOKING FORM (PRESERVES API & INTEGRATIONS)
     // -------------------------------------------------------------------------
     const bookingForm = document.getElementById('bookingForm');
