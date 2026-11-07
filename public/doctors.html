@@ -3,52 +3,74 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Our Dentists | Best Dentist Near Me in Poonoor - Dr Salih Dentpark</title>
     <meta name="description" content="Meet our experienced team of professionals at Dr Salih Dentpark. Finding the best dentist near me is easy with our specialists in implants, orthodontics, and more.">
     <meta name="keywords" content="dental clinic in Poonoor, best dentist near me, orthodontist, implantologist">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .page-header {
-            padding: 150px 0 80px;
-            background-color: var(--clr-primary);
-            color: var(--clr-white);
-            text-align: center;
-        }
-    </style>
 </head>
 
 <body>
-    <nav class="navbar scrolled" id="navbar" style="background-color: var(--clr-white);">
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
         <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <span class="logo-dr" style="color:var(--clr-primary)">Dr Salih's</span>
+            <a href="index.html" class="logo" aria-label="Dr Salih Dentpark Homepage">
+                <span class="logo-dr">Dr Salih's</span>
                 <span class="logo-clinic">Dentpark</span>
             </a>
-            <ul class="nav-menu">
-                <li class="nav-item"><a href="index.html" class="nav-link" style="color:var(--clr-primary)">Home</a>
+
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="doctors.html" class="nav-link active">Doctors</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li class="nav-item"><a href="index.html#testimonials" class="nav-link">Reviews</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+
+                <li class="mobile-menu-cta">
+                    <a href="contact.html" class="btn btn-primary"><i class="fa-regular fa-calendar-check"></i> Book Appointment</a>
+                    <a href="tel:+918129024493" class="btn btn-outline-gold"><i class="fa-solid fa-phone"></i> +91 8129 024 493</a>
+                    <div style="margin-top: 15px; font-size: 0.85rem; color: #94A3B8; text-align: center;">
+                        <i class="fa-regular fa-clock text-gold"></i> Mon - Sat: 9:00 AM - 7:00 PM<br>
+                        <i class="fa-solid fa-location-dot text-gold" style="margin-top: 4px;"></i> Poonoor, Kerala
+                    </div>
                 </li>
-                <li class="nav-item"><a href="about.html" class="nav-link" style="color:var(--clr-primary)">About</a>
-                </li>
-                <li class="nav-item"><a href="services.html" class="nav-link"
-                        style="color:var(--clr-primary)">Services</a></li>
-                <li class="nav-item"><a href="doctors.html" class="nav-link active"
-                        style="color:var(--clr-primary)">Doctors</a></li>
-                <li class="nav-item"><a href="gallery.html" class="nav-link"
-                        style="color:var(--clr-primary)">Gallery</a></li>
-                <li class="nav-item"><a href="contact.html" class="nav-link"
-                        style="color:var(--clr-primary)">Contact</a></li>
             </ul>
+
+            <div class="nav-actions">
+                <a href="tel:+918129024493" class="nav-mobile-call" aria-label="Call Dentpark Clinic Directly">
+                    <i class="fa-solid fa-phone"></i>
+                </a>
+                <a href="tel:+918129024493" class="btn btn-outline nav-btn call-btn">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>Call Now</span>
+                </a>
+                <a href="contact.html" class="btn btn-primary nav-btn">Book Visit</a>
+                <button class="hamburger" type="button" aria-label="Toggle navigation menu" aria-controls="navMenu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
         </div>
     </nav>
 
     <header class="page-header reveal fade-up">
         <div class="container">
+            <span class="section-subtitle">Clinical Leadership</span>
             <h1 class="hero-title text-white">Meet the Experts Behind Your Smile</h1>
+            <p class="hero-text text-white">Our team of experienced dental surgeons and specialists provides world-class care in Poonoor.</p>
         </div>
     </header>
 
@@ -57,90 +79,113 @@
             <div class="grid-3">
                 <!-- Doctor 1 -->
                 <div class="doc-card reveal fade-up">
-                    <div class="doc-img bg-doc-1"></div>
+                    <div class="doc-img bg-doc-1" role="img" aria-label="Dr Salih Chief Dental Surgeon"></div>
                     <div class="doc-info">
                         <h3 class="doc-name">Dr. Salih</h3>
                         <p class="doc-spec">Chief Dental Surgeon</p>
                         <p class="doc-qual">BDS, MDS (Prosthodontics)</p>
                         <p class="doc-exp">18 Years Experience</p>
                         <div class="doc-social">
-                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" aria-label="Dr Salih LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Dr Salih Instagram"><i class="fa-brands fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Doctor 2 -->
                 <div class="doc-card reveal fade-up delay-1">
-                    <div class="doc-img bg-doc-2"></div>
+                    <div class="doc-img bg-doc-2" role="img" aria-label="Dr Atiq Orthodontist"></div>
                     <div class="doc-info">
                         <h3 class="doc-name">Dr. Atiq</h3>
                         <p class="doc-spec">Orthodontist</p>
                         <p class="doc-qual">BDS, MDS (Orthodontics)</p>
                         <p class="doc-exp">12 Years Experience</p>
                         <div class="doc-social">
-                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" aria-label="Dr Atiq LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Dr Atiq Instagram"><i class="fa-brands fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Doctor 3 -->
                 <div class="doc-card reveal fade-up delay-2">
-                    <div class="doc-img bg-doc-3"></div>
+                    <div class="doc-img bg-doc-3" role="img" aria-label="Dr Michael Chen Implantologist"></div>
                     <div class="doc-info">
                         <h3 class="doc-name">Dr. Michael Chen</h3>
                         <p class="doc-spec">Implantologist</p>
                         <p class="doc-qual">DDS, Fellow ICOI</p>
                         <p class="doc-exp">15 Years Experience</p>
                         <div class="doc-social">
-                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" aria-label="Dr Michael Chen LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Dr Michael Chen Instagram"><i class="fa-brands fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div class="text-center mt-4 reveal fade-up">
+                <a href="contact.html" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1rem;">
+                    <i class="fa-regular fa-calendar-check"></i> Book an Appointment with Dr. Salih
+                </a>
+            </div>
         </div>
     </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-top grid-4">
                 <div class="footer-col reveal fade-up">
-                    <a href="index.html" class="logo footer-logo">
+                    <a href="index.html" class="logo footer-logo" aria-label="Dentpark Footer Logo">
                         <span class="logo-dr text-white">Dr Salih's</span>
                         <span class="logo-clinic text-gold">Dentpark</span>
                     </a>
-                    <p class="footer-text mt-2">Crafting confident smiles with precision, care, and artistry. Your
-                        premier destination for luxury dental care.</p>
+                    <p class="footer-text">Crafting confident smiles with precision, care, and artistry. Your premier destination for luxury dental care in Poonoor, Kerala.</p>
                 </div>
                 <div class="footer-col reveal fade-up delay-1">
                     <h4 class="footer-title">Quick Links</h4>
                     <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Clinic</a></li>
-                        <li><a href="services.html">Our Services</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="index.html"><i class="fa-solid fa-angle-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fa-solid fa-angle-right"></i> About Clinic</a></li>
+                        <li><a href="services.html"><i class="fa-solid fa-angle-right"></i> Our Services</a></li>
+                        <li><a href="doctors.html"><i class="fa-solid fa-angle-right"></i> Specialists</a></li>
+                        <li><a href="gallery.html"><i class="fa-solid fa-angle-right"></i> Clinic Gallery</a></li>
+                        <li><a href="contact.html"><i class="fa-solid fa-angle-right"></i> Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="footer-col reveal fade-up delay-2">
                     <h4 class="footer-title">Contact Info</h4>
                     <ul class="footer-contact">
-                        <li><i class="fa-solid fa-phone"></i><span>+1 (800) 123-4567</span></li>
-                        <li><i class="fa-solid fa-envelope"></i><span>info@dentparkclinic.com</span></li>
+                        <li><i class="fa-solid fa-location-dot"></i><span>Dentpark Building, Poonoor, Kerala 673574, India</span></li>
+                        <li><i class="fa-solid fa-phone"></i><a href="tel:+918129024493" style="color: inherit; text-decoration: none;">+91 8129 024 493</a></li>
+                        <li><i class="fa-solid fa-envelope"></i><a href="mailto:info@dentparkclinic.com" style="color: inherit; text-decoration: none;">info@dentparkclinic.com</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col reveal fade-up delay-3">
+                    <h4 class="footer-title">Working Hours</h4>
+                    <ul class="working-hours">
+                        <li><span>Mon - Fri</span> <span>09:00 AM - 07:00 PM</span></li>
+                        <li><span>Saturday</span> <span>09:00 AM - 05:00 PM</span></li>
+                        <li><span>Sunday</span> <span>Closed (Emergencies Only)</span></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Dr Salih's Dentpark Dental Clinic. All Rights Reserved.</p>
+                <p>&copy; 2026 Dr Salih's Dentpark Dental Clinic. All Rights Reserved. Poonoor, Kerala.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/18001234567" class="whatsapp-btn" target="_blank" aria-label="Chat with us on WhatsApp">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
+    <!-- Floating Contact Buttons -->
+    <div class="floating-contact-group">
+        <a href="tel:+918129024493" class="floating-btn call-floating-btn" data-tooltip="Call Clinic Directly" aria-label="Call Dentpark Clinic Directly">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+        <a href="https://wa.me/918129024493?text=Hello%20Doctor%2C%20I%20want%20to%20book%20an%20appointment"
+            class="floating-btn whatsapp-btn" target="_blank" rel="noopener noreferrer" data-tooltip="Chat on WhatsApp" aria-label="Chat with us on WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+        </a>
+    </div>
 
     <script src="script.js"></script>
 </body>

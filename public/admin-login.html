@@ -2,112 +2,294 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login | Dentpark</title>
-    <!-- Fonts and Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Admin Login | Dentpark Clinic</title>
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <style>
-        .login-container {
+        .login-page {
+            min-height: 100vh;
+            min-height: 100dvh;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
-            background-color: #1a1a1a;
+            background: radial-gradient(circle at 50% 20%, #132E63 0%, #0A1F44 45%, #06152F 100%);
+            padding: clamp(1rem, 4vw, 2.5rem);
+            position: relative;
+            overflow: hidden;
         }
-        .login-box {
-            background: #2a2a2a;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+
+        .login-page::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d4af37' fill-opacity='0.03' fill-rule='evenodd'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .login-card {
+            background: rgba(21, 26, 36, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: clamp(1.75rem, 5vw, 2.75rem);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(212, 175, 55, 0.2);
             width: 100%;
-            max-width: 400px;
-            text-align: center;
+            max-width: 440px;
+            position: relative;
+            z-index: 2;
         }
+
         .login-logo {
-            font-size: 24px;
-            margin-bottom: 20px;
+            text-align: center;
+            margin-bottom: 1.75rem;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .login-logo .logo-dr {
+            color: #94A3B8;
+            font-size: 0.8rem;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .login-logo .logo-clinic {
+            font-family: var(--font-heading);
+            font-size: 2.1rem;
+            color: var(--clr-gold);
+            font-weight: 700;
             display: block;
         }
-        .login-logo .logo-dr {
-            color: #fff;
-            font-family: var(--font-fancy, 'Playfair Display', serif);
+
+        .login-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            border-radius: var(--radius-full);
+            background: rgba(212, 175, 55, 0.12);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: var(--clr-gold);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 0.5rem;
         }
-        .login-logo .logo-clinic {
-            color: var(--gold, #dba953);
-            font-family: var(--font-fancy, 'Playfair Display', serif);
-        }
-        .form-group {
-            margin-bottom: 20px;
+
+        .login-form-group {
+            margin-bottom: 1.35rem;
             text-align: left;
         }
-        .form-group input {
-            width: 100%;
-            padding: 12px 15px;
-            background: #1a1a1a;
-            border: 1px solid #444;
-            color: #fff;
-            border-radius: 4px;
-            font-family: inherit;
-        }
-        .form-group input:focus {
-            outline: none;
-            border-color: #dba953;
-        }
-        .btn-login {
-            width: 100%;
-            padding: 12px;
-            background: #dba953;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
+
+        .login-form-group label {
+            display: block;
+            color: #E2E8F0;
+            font-size: 0.85rem;
             font-weight: 600;
+            margin-bottom: 0.45rem;
+        }
+
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 1rem;
+            color: #64748B;
+            font-size: 1rem;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+
+        .login-input {
+            width: 100%;
+            padding: 0.85rem 1rem 0.85rem 2.85rem;
+            min-height: 50px;
+            background: #0B0E14;
+            border: 1.5px solid rgba(255, 255, 255, 0.12);
+            color: #FFFFFF;
+            border-radius: var(--radius-sm);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .login-input:focus {
+            outline: none;
+            border-color: var(--clr-gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.18);
+            background: #11151E;
+        }
+
+        .login-input:focus + .input-icon,
+        .input-wrapper:focus-within .input-icon {
+            color: var(--clr-gold);
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 0.85rem;
+            background: transparent;
+            border: none;
+            color: #64748B;
             cursor: pointer;
-            transition: 0.3s;
+            padding: 0.5rem;
+            font-size: 1rem;
+            transition: var(--transition);
         }
-        .btn-login:hover {
-            background: #c29340;
+
+        .toggle-password:hover {
+            color: var(--clr-gold);
         }
-        .login-msg {
-            margin-top: 15px;
-            font-size: 14px;
+
+        .btn-login-submit {
+            width: 100%;
+            padding: 0.95rem;
+            min-height: 50px;
+            background: linear-gradient(135deg, var(--clr-gold) 0%, var(--clr-gold-dark) 100%);
+            color: var(--clr-primary-dark);
+            border: none;
+            border-radius: var(--radius-sm);
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            box-shadow: var(--shadow-gold);
+            margin-top: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
-        .error { color: #e74c3c; }
+
+        .btn-login-submit:hover:not(:disabled) {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, var(--clr-gold-light) 0%, var(--clr-gold) 100%);
+        }
+
+        .btn-login-submit:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .login-alert {
+            margin-top: 1.25rem;
+            padding: 0.85rem 1rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.9rem;
+            text-align: center;
+            display: none;
+        }
+
+        .login-alert.error {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            justify-content: center;
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            color: #FCA5A5;
+        }
+
+        .login-footer-links {
+            margin-top: 2rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            text-align: center;
+        }
+
+        .login-footer-links a {
+            color: #94A3B8;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: var(--transition);
+        }
+
+        .login-footer-links a:hover {
+            color: var(--clr-gold);
+        }
     </style>
 </head>
-<body>
-    <div class="login-container">
-        <div class="login-box">
-            <a href="/" class="login-logo" style="text-decoration: none;">
-                <span class="logo-dr">Dr Salih's</span>
-                <span class="logo-clinic">Dentpark</span>
-            </a>
-            <h3 style="color: #fff; margin-bottom: 20px; font-weight: 400;">Admin Portal</h3>
-            
-            <form id="loginForm">
-                <div class="form-group">
-                    <input type="text" id="username" placeholder="Username" required>
+<body class="login-page">
+    <div class="login-card">
+        <div class="login-logo">
+            <span class="logo-dr">Dr. Salih's</span>
+            <span class="logo-clinic">Dentpark</span>
+            <div>
+                <span class="login-badge"><i class="fa-solid fa-shield-halved"></i> Admin Portal</span>
+            </div>
+        </div>
+
+        <form id="loginForm" novalidate>
+            <div class="login-form-group">
+                <label for="username">Administrator Username</label>
+                <div class="input-wrapper">
+                    <input type="text" id="username" class="login-input" placeholder="Enter username" required autocomplete="username">
+                    <i class="fa-solid fa-user input-icon"></i>
                 </div>
-                <div class="form-group">
-                    <input type="password" id="password" placeholder="Password" required>
+            </div>
+
+            <div class="login-form-group">
+                <label for="password">Password</label>
+                <div class="input-wrapper">
+                    <input type="password" id="password" class="login-input" placeholder="Enter password" required autocomplete="current-password">
+                    <i class="fa-solid fa-lock input-icon"></i>
+                    <button type="button" class="toggle-password" id="togglePassword" aria-label="Toggle password visibility">
+                        <i class="fa-regular fa-eye"></i>
+                    </button>
                 </div>
-                <button type="submit" class="btn-login">Secure Login</button>
-                <p id="loginMsg" class="login-msg" style="display: none;"></p>
-            </form>
+            </div>
+
+            <button type="submit" class="btn-login-submit" id="submitBtn">
+                <i class="fa-solid fa-lock-open"></i> <span>Secure Login</span>
+            </button>
+
+            <div id="loginMsg" class="login-alert" role="alert"></div>
+        </form>
+
+        <div class="login-footer-links">
+            <a href="/"><i class="fa-solid fa-arrow-left"></i> Return to Dentpark Website</a>
         </div>
     </div>
 
     <script>
+        // Password Visibility Toggle
+        const toggleBtn = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+        if (toggleBtn && passwordInput) {
+            toggleBtn.addEventListener('click', () => {
+                const isPassword = passwordInput.type === 'password';
+                passwordInput.type = isPassword ? 'text' : 'password';
+                toggleBtn.innerHTML = isPassword ? '<i class="fa-regular fa-eye-slash"></i>' : '<i class="fa-regular fa-eye"></i>';
+            });
+        }
+
+        // Form Submit Handler
         document.getElementById('loginForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             const msgEl = document.getElementById('loginMsg');
-            const submitBtn = document.querySelector('.btn-login');
-            
-            submitBtn.innerText = 'Authenticating...';
-            submitBtn.disabled = true;
+            const submitBtn = document.getElementById('submitBtn');
+            const btnSpan = submitBtn.querySelector('span');
 
-            const username = document.getElementById('username').value;
+            btnSpan.innerText = 'Authenticating...';
+            submitBtn.disabled = true;
+            msgEl.style.display = 'none';
+
+            const username = document.getElementById('username').value.trim();
             const password = document.getElementById('password').value;
 
             try {
@@ -117,21 +299,22 @@
                     body: JSON.stringify({ username, password })
                 });
                 const data = await res.json();
-                
-                if (data.success) {
-                    window.location.href = '/admin'; // Redirect
+
+                if (res.ok && data.success) {
+                    btnSpan.innerText = 'Access Granted!';
+                    window.location.href = '/admin';
                 } else {
-                    msgEl.style.display = 'block';
-                    msgEl.className = 'login-msg error';
-                    msgEl.innerText = data.message;
+                    msgEl.className = 'login-alert error';
+                    msgEl.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> ' + (data.message || 'Invalid username or password');
+                    msgEl.style.display = 'flex';
                 }
             } catch (err) {
-                msgEl.style.display = 'block';
-                msgEl.className = 'login-msg error';
-                msgEl.innerText = 'Log in failed due to connection error.';
+                msgEl.className = 'login-alert error';
+                msgEl.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Server connection error. Please try again.';
+                msgEl.style.display = 'flex';
             } finally {
-                submitBtn.innerText = 'Secure Login';
                 submitBtn.disabled = false;
+                btnSpan.innerText = 'Secure Login';
             }
         });
     </script>
