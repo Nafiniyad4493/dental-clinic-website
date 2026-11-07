@@ -131,59 +131,63 @@
         </div>
     </nav>
 
-    <!-- Dynamic Hero Showcase Section (Fitted Perfectly to Home Screen) -->
-    <header id="home" class="hero-showcase-section" aria-label="Hero Section">
-        <div class="container hero-showcase-container">
+    <!-- Dynamic Full-Page Hero Showcase (Completely Fits First Page) -->
+    <header id="home" class="hero hero-fit-page" aria-label="Hero Section">
+        
+        <!-- Full-Page Dynamic Background Slideshow -->
+        <div class="hero-slider" id="heroSlider" aria-roledescription="carousel" aria-label="Clinic Highlights Showcase">
+            
+            <!-- Slide 1: Modern Luxury Clinic Interior (Active) -->
+            <div class="hero-slide active" role="group" aria-roledescription="slide" aria-label="1 of 5: Modern Luxury Clinic Interior" data-index="0">
+                <img src="images/hero/slide-1.jpg" alt="Modern Luxury Dental Clinic Operatory at Dr Salih Dentpark Poonoor" class="hero-slide-img" fetchpriority="high">
+            </div>
+
+            <!-- Slide 2: Dentist Treating Patient -->
+            <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="2 of 5: Expert Dental Procedure" data-index="1">
+                <img src="images/hero/slide-2.jpg" alt="Specialist Dental Surgeon Treating Patient with Gentle Care" class="hero-slide-img" loading="lazy">
+            </div>
+
+            <!-- Slide 3: Radiant Healthy Smile -->
+            <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="3 of 5: Radiant Smile Makeover" data-index="2">
+                <img src="images/hero/slide-3.jpg" alt="Confident and Radiant Healthy Smile After Cosmetic Treatment" class="hero-slide-img" loading="lazy">
+            </div>
+
+            <!-- Slide 4: State-of-the-Art Dental Technology -->
+            <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="4 of 5: Advanced Dental Technology" data-index="3">
+                <img src="images/hero/slide-4.jpg" alt="Advanced Digital 3D Dental Equipment and Sterilization Facilities" class="hero-slide-img" loading="lazy">
+            </div>
+
+            <!-- Slide 5: Private Consultation Lounge -->
+            <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="5 of 5: Relaxed Consultation Suite" data-index="4">
+                <img src="images/hero/slide-5.jpg" alt="Tranquil and Comfortable Patient Reception and Consultation Suite" class="hero-slide-img" loading="lazy">
+            </div>
+
+            <!-- Subtle Vignette Overlay for Crisp Readability -->
+            <div class="hero-fit-overlay"></div>
+        </div>
+
+        <!-- Hero Content Layer: Top Heading + Bottom Buttons (Center Completely Clear & Unobstructed) -->
+        <div class="hero-fit-content">
             
             <!-- 1. Hero Text Above The Dynamic Photos -->
             <div class="hero-top-text">
                 <h1 class="hero-title">Your Smile Deserves the Best Care</h1>
             </div>
 
-            <!-- 2. Dynamic Image Slideshow (Completely Fits Home Page) -->
-            <div class="hero-image-stage">
-                <div class="hero-slider" id="heroSlider" aria-roledescription="carousel" aria-label="Clinic Highlights Showcase">
-                    
-                    <!-- Slide 1: Modern Luxury Clinic Interior (Active) -->
-                    <div class="hero-slide active" role="group" aria-roledescription="slide" aria-label="1 of 5: Modern Luxury Clinic Interior" data-index="0">
-                        <img src="images/hero/slide-1.jpg" alt="Modern Luxury Dental Clinic Operatory at Dr Salih Dentpark Poonoor" class="hero-slide-img" fetchpriority="high">
-                    </div>
-
-                    <!-- Slide 2: Dentist Treating Patient -->
-                    <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="2 of 5: Expert Dental Procedure" data-index="1">
-                        <img src="images/hero/slide-2.jpg" alt="Specialist Dental Surgeon Treating Patient with Gentle Care" class="hero-slide-img" loading="lazy">
-                    </div>
-
-                    <!-- Slide 3: Radiant Healthy Smile -->
-                    <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="3 of 5: Radiant Smile Makeover" data-index="2">
-                        <img src="images/hero/slide-3.jpg" alt="Confident and Radiant Healthy Smile After Cosmetic Treatment" class="hero-slide-img" loading="lazy">
-                    </div>
-
-                    <!-- Slide 4: State-of-the-Art Dental Technology -->
-                    <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="4 of 5: Advanced Dental Technology" data-index="3">
-                        <img src="images/hero/slide-4.jpg" alt="Advanced Digital 3D Dental Equipment and Sterilization Facilities" class="hero-slide-img" loading="lazy">
-                    </div>
-
-                    <!-- Slide 5: Private Consultation Lounge -->
-                    <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="5 of 5: Relaxed Consultation Suite" data-index="4">
-                        <img src="images/hero/slide-5.jpg" alt="Tranquil and Comfortable Patient Reception and Consultation Suite" class="hero-slide-img" loading="lazy">
-                    </div>
-                </div>
-
-                <!-- 3. Book Appointment and Explore Services Buttons ON the Bottom of Dynamic Image -->
-                <div class="hero-bottom-cta">
-                    <a href="#appointment" class="btn btn-gold-cta">
-                        <i class="fa-regular fa-calendar-check" aria-hidden="true"></i>
-                        <span>Book an Appointment</span>
-                    </a>
-                    <a href="services.html" class="btn btn-navy-cta">
-                        <span>Explore Our Services</span>
-                        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-                    </a>
-                </div>
+            <!-- 2. Buttons On The Bottom Of The Dynamic Image -->
+            <div class="hero-bottom-cta">
+                <a href="#appointment" class="btn btn-gold-cta">
+                    <i class="fa-regular fa-calendar-check" aria-hidden="true"></i>
+                    <span>Book an Appointment</span>
+                </a>
+                <a href="services.html" class="btn btn-navy-cta">
+                    <span>Explore Our Services</span>
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                </a>
             </div>
 
         </div>
+
     </header>
 
     <!-- Quick Stats Prestige Bar -->
