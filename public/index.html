@@ -8,6 +8,9 @@
     <meta name="description" content="Experience world-class dental care at Dr. Salih's Dentpark in Poonoor, Kerala. Painless treatments, dental implants, invisible braces, smile makeovers and 3D digital dentistry.">
     <meta name="keywords" content="dental clinic in Poonoor, best dentist in Poonoor, Dr Salih Dentpark, dental implants Kerala, teeth whitening, invisible braces, painless root canal">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+
     <!-- Preload First Hero Slideshow Image for Fast LCP -->
     <link rel="preload" as="image" href="images/hero/slide-1.jpg" fetchpriority="high">
 
@@ -77,16 +80,19 @@
     <nav class="navbar" id="navbar">
         <div class="container nav-container">
             <a href="#home" class="logo" aria-label="Dr Salih Dentpark Homepage">
-                <span class="logo-dr">Dr Salih's</span>
-                <span class="logo-clinic">Dentpark</span>
+                <img src="images/logo.png" alt="Dr Salih's Dentpark Dental Care" class="logo-img">
+                <div class="logo-text">
+                    <span class="logo-dr">Dr Salih's</span>
+                    <span class="logo-clinic">Dentpark</span>
+                </div>
             </a>
 
             <ul class="nav-menu" id="navMenu">
                 <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
                 <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#doctors" class="nav-link">Doctors</a></li>
                 <li class="nav-item"><a href="#why-choose-us" class="nav-link">Why Us</a></li>
                 <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
-                <li class="nav-item"><a href="#doctors" class="nav-link">Doctors</a></li>
                 <li class="nav-item"><a href="#gallery" class="nav-link">Gallery</a></li>
                 <li class="nav-item"><a href="#testimonials" class="nav-link">Reviews</a></li>
                 <li class="nav-item"><a href="#location" class="nav-link">Location</a></li>
@@ -125,79 +131,58 @@
         </div>
     </nav>
 
-    <!-- Dynamic Full-Screen Hero Section -->
-    <header id="home" class="hero hero-fullscreen" aria-label="Hero Section">
-        
-        <!-- Full-Screen Dynamic Background Slideshow (Completely Fits Home Page) -->
-        <div class="hero-slider" id="heroSlider" aria-roledescription="carousel" aria-label="Clinic Highlights Showcase">
+    <!-- Dynamic Hero Showcase Section (Fitted Perfectly to Home Screen) -->
+    <header id="home" class="hero-showcase-section" aria-label="Hero Section">
+        <div class="container hero-showcase-container">
             
-            <!-- Slide 1: Modern Luxury Clinic Interior (Active) -->
-            <div class="hero-slide active" role="group" aria-roledescription="slide" aria-label="1 of 5: Modern Luxury Clinic Interior" data-index="0">
-                <img src="images/hero/slide-1.jpg" alt="Modern Luxury Dental Clinic Operatory at Dr Salih Dentpark Poonoor" class="hero-slide-img" fetchpriority="high">
-                <div class="hero-slide-overlay"></div>
+            <!-- 1. Hero Text Above The Dynamic Photos -->
+            <div class="hero-top-text">
+                <h1 class="hero-title">Your Smile Deserves the Best Care</h1>
             </div>
 
-            <!-- Slide 2: Dentist Treating Patient -->
-            <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="2 of 5: Expert Dental Procedure" data-index="1">
-                <img src="images/hero/slide-2.jpg" alt="Specialist Dental Surgeon Treating Patient with Gentle Care" class="hero-slide-img" loading="lazy">
-                <div class="hero-slide-overlay"></div>
-            </div>
+            <!-- 2. Dynamic Image Slideshow (Completely Fits Home Page) -->
+            <div class="hero-image-stage">
+                <div class="hero-slider" id="heroSlider" aria-roledescription="carousel" aria-label="Clinic Highlights Showcase">
+                    
+                    <!-- Slide 1: Modern Luxury Clinic Interior (Active) -->
+                    <div class="hero-slide active" role="group" aria-roledescription="slide" aria-label="1 of 5: Modern Luxury Clinic Interior" data-index="0">
+                        <img src="images/hero/slide-1.jpg" alt="Modern Luxury Dental Clinic Operatory at Dr Salih Dentpark Poonoor" class="hero-slide-img" fetchpriority="high">
+                    </div>
 
-            <!-- Slide 3: Radiant Healthy Smile -->
-            <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="3 of 5: Radiant Smile Makeover" data-index="2">
-                <img src="images/hero/slide-3.jpg" alt="Confident and Radiant Healthy Smile After Cosmetic Treatment" class="hero-slide-img" loading="lazy">
-                <div class="hero-slide-overlay"></div>
-            </div>
+                    <!-- Slide 2: Dentist Treating Patient -->
+                    <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="2 of 5: Expert Dental Procedure" data-index="1">
+                        <img src="images/hero/slide-2.jpg" alt="Specialist Dental Surgeon Treating Patient with Gentle Care" class="hero-slide-img" loading="lazy">
+                    </div>
 
-            <!-- Slide 4: State-of-the-Art Dental Technology -->
-            <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="4 of 5: Advanced Dental Technology" data-index="3">
-                <img src="images/hero/slide-4.jpg" alt="Advanced Digital 3D Dental Equipment and Sterilization Facilities" class="hero-slide-img" loading="lazy">
-                <div class="hero-slide-overlay"></div>
-            </div>
+                    <!-- Slide 3: Radiant Healthy Smile -->
+                    <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="3 of 5: Radiant Smile Makeover" data-index="2">
+                        <img src="images/hero/slide-3.jpg" alt="Confident and Radiant Healthy Smile After Cosmetic Treatment" class="hero-slide-img" loading="lazy">
+                    </div>
 
-            <!-- Slide 5: Private Consultation Lounge -->
-            <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="5 of 5: Relaxed Consultation Suite" data-index="4">
-                <img src="images/hero/slide-5.jpg" alt="Tranquil and Comfortable Patient Reception and Consultation Suite" class="hero-slide-img" loading="lazy">
-                <div class="hero-slide-overlay"></div>
-            </div>
-        </div>
+                    <!-- Slide 4: State-of-the-Art Dental Technology -->
+                    <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="4 of 5: Advanced Dental Technology" data-index="3">
+                        <img src="images/hero/slide-4.jpg" alt="Advanced Digital 3D Dental Equipment and Sterilization Facilities" class="hero-slide-img" loading="lazy">
+                    </div>
 
-        <!-- Clean, Minimalist Content Layer: Just Heading and CTAs -->
-        <div class="container hero-container">
-            <div class="hero-content reveal fade-up">
-                <h1 class="hero-title">
-                    Your Smile Deserves <br>
-                    <span class="gold-gradient-text">The Best Care</span>
-                </h1>
+                    <!-- Slide 5: Private Consultation Lounge -->
+                    <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="5 of 5: Relaxed Consultation Suite" data-index="4">
+                        <img src="images/hero/slide-5.jpg" alt="Tranquil and Comfortable Patient Reception and Consultation Suite" class="hero-slide-img" loading="lazy">
+                    </div>
+                </div>
 
-                <div class="hero-buttons">
-                    <a href="#appointment" class="btn btn-primary hero-btn">
-                        <i class="fa-regular fa-calendar-check"></i> Book an Appointment
+                <!-- 3. Book Appointment and Explore Services Buttons ON the Bottom of Dynamic Image -->
+                <div class="hero-bottom-cta">
+                    <a href="#appointment" class="btn btn-gold-cta">
+                        <i class="fa-regular fa-calendar-check" aria-hidden="true"></i>
+                        <span>Book an Appointment</span>
                     </a>
-                    <a href="services.html" class="btn btn-outline hero-btn hero-btn-secondary">
-                        Explore Our Services <i class="fa-solid fa-arrow-right"></i>
+                    <a href="services.html" class="btn btn-navy-cta">
+                        <span>Explore Our Services</span>
+                        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
                     </a>
                 </div>
             </div>
-        </div>
 
-        <!-- Navigation Arrows Pinned to Screen Edges -->
-        <button class="hero-nav-arrow prev-slide" id="heroPrevBtn" type="button" aria-label="Previous Slide">
-            <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
-        </button>
-        <button class="hero-nav-arrow next-slide" id="heroNextBtn" type="button" aria-label="Next Slide">
-            <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
-        </button>
-
-        <!-- Slide Indicator Dots -->
-        <div class="hero-bottom-controls">
-            <div class="hero-dots" id="heroDots" role="tablist" aria-label="Slideshow pagination">
-                <button class="hero-dot active" type="button" role="tab" aria-selected="true" aria-label="Slide 1" data-slide="0"></button>
-                <button class="hero-dot" type="button" role="tab" aria-selected="false" aria-label="Slide 2" data-slide="1"></button>
-                <button class="hero-dot" type="button" role="tab" aria-selected="false" aria-label="Slide 3" data-slide="2"></button>
-                <button class="hero-dot" type="button" role="tab" aria-selected="false" aria-label="Slide 4" data-slide="3"></button>
-                <button class="hero-dot" type="button" role="tab" aria-selected="false" aria-label="Slide 5" data-slide="4"></button>
-            </div>
         </div>
     </header>
 
@@ -249,6 +234,70 @@
                 </ul>
 
                 <a href="about.html" class="btn btn-secondary mt-3">Learn More About Dentpark <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctors Section (Positioned Directly Below About Dentpark) -->
+    <section id="doctors" class="section doctors bg-light">
+        <div class="container">
+            <div class="section-header text-center reveal fade-up">
+                <span class="section-subtitle">Our Specialists</span>
+                <h2 class="section-title">Meet the Experts Behind Your Smile</h2>
+                <p class="section-description">Dedicated dental specialists combining decades of clinical excellence with warm, compassionate patient care.</p>
+            </div>
+
+            <div class="grid-3">
+                <!-- Doctor 1 -->
+                <div class="doc-card reveal fade-up">
+                    <div class="doc-img bg-doc-1" role="img" aria-label="Dr Salih Chief Dental Surgeon"></div>
+                    <div class="doc-info">
+                        <h3 class="doc-name">Dr. Salih</h3>
+                        <p class="doc-spec">Chief Dental Surgeon</p>
+                        <p class="doc-qual">BDS, MDS (Prosthodontics)</p>
+                        <p class="doc-exp">18 Years Clinical Experience</p>
+                        <div class="doc-social">
+                            <a href="#" aria-label="Dr Salih LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Dr Salih Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Doctor 2 -->
+                <div class="doc-card reveal fade-up delay-1">
+                    <div class="doc-img bg-doc-2" role="img" aria-label="Dentpark Orthodontist Specialist"></div>
+                    <div class="doc-info">
+                        <h3 class="doc-name">Dr. Atiq</h3>
+                        <p class="doc-spec">Orthodontist & Aligner Specialist</p>
+                        <p class="doc-qual">BDS, MDS (Orthodontics)</p>
+                        <p class="doc-exp">12 Years Clinical Experience</p>
+                        <div class="doc-social">
+                            <a href="#" aria-label="Dr Atiq LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Dr Atiq Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Doctor 3 -->
+                <div class="doc-card reveal fade-up delay-2">
+                    <div class="doc-img bg-doc-3" role="img" aria-label="Dentpark Implantologist Specialist"></div>
+                    <div class="doc-info">
+                        <h3 class="doc-name">Dr. Michael Chen</h3>
+                        <p class="doc-spec">Consultant Implantologist</p>
+                        <p class="doc-qual">DDS, Fellow ICOI</p>
+                        <p class="doc-exp">15 Years Clinical Experience</p>
+                        <div class="doc-social">
+                            <a href="#" aria-label="Dr Michael Chen LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Dr Michael Chen Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4 reveal fade-up">
+                <a href="doctors.html" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-user-doctor"></i> View Doctor Profiles & Credentials <i class="fa-solid fa-arrow-right"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -364,70 +413,6 @@
             <div class="text-center mt-4 reveal fade-up">
                 <a href="services.html" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
                     <i class="fa-solid fa-teeth"></i> Explore All Procedures & Treatments <i class="fa-solid fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Doctors Section -->
-    <section id="doctors" class="section doctors bg-light">
-        <div class="container">
-            <div class="section-header text-center reveal fade-up">
-                <span class="section-subtitle">Our Specialists</span>
-                <h2 class="section-title">Meet the Experts Behind Your Smile</h2>
-                <p class="section-description">Dedicated dental specialists combining decades of clinical excellence with warm, compassionate patient care.</p>
-            </div>
-
-            <div class="grid-3">
-                <!-- Doctor 1 -->
-                <div class="doc-card reveal fade-up">
-                    <div class="doc-img bg-doc-1" role="img" aria-label="Dr Salih Chief Dental Surgeon"></div>
-                    <div class="doc-info">
-                        <h3 class="doc-name">Dr. Salih</h3>
-                        <p class="doc-spec">Chief Dental Surgeon</p>
-                        <p class="doc-qual">BDS, MDS (Prosthodontics)</p>
-                        <p class="doc-exp">18 Years Clinical Experience</p>
-                        <div class="doc-social">
-                            <a href="#" aria-label="Dr Salih LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                            <a href="#" aria-label="Dr Salih Instagram"><i class="fa-brands fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Doctor 2 -->
-                <div class="doc-card reveal fade-up delay-1">
-                    <div class="doc-img bg-doc-2" role="img" aria-label="Dentpark Orthodontist Specialist"></div>
-                    <div class="doc-info">
-                        <h3 class="doc-name">Dr. Atiq</h3>
-                        <p class="doc-spec">Orthodontist & Aligner Specialist</p>
-                        <p class="doc-qual">BDS, MDS (Orthodontics)</p>
-                        <p class="doc-exp">12 Years Clinical Experience</p>
-                        <div class="doc-social">
-                            <a href="#" aria-label="Dr Atiq LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                            <a href="#" aria-label="Dr Atiq Instagram"><i class="fa-brands fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Doctor 3 -->
-                <div class="doc-card reveal fade-up delay-2">
-                    <div class="doc-img bg-doc-3" role="img" aria-label="Dentpark Implantologist Specialist"></div>
-                    <div class="doc-info">
-                        <h3 class="doc-name">Dr. Michael Chen</h3>
-                        <p class="doc-spec">Consultant Implantologist</p>
-                        <p class="doc-qual">DDS, Fellow ICOI</p>
-                        <p class="doc-exp">15 Years Clinical Experience</p>
-                        <div class="doc-social">
-                            <a href="#" aria-label="Dr Michael Chen LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                            <a href="#" aria-label="Dr Michael Chen Instagram"><i class="fa-brands fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center mt-4 reveal fade-up">
-                <a href="doctors.html" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 8px;">
-                    <i class="fa-solid fa-user-doctor"></i> View Doctor Profiles & Credentials <i class="fa-solid fa-arrow-right"></i>
                 </a>
             </div>
         </div>
@@ -666,8 +651,11 @@
             <div class="footer-top grid-4">
                 <div class="footer-col reveal fade-up">
                     <a href="#home" class="logo footer-logo" aria-label="Dentpark Footer Logo">
-                        <span class="logo-dr text-white">Dr Salih's</span>
-                        <span class="logo-clinic text-gold">Dentpark</span>
+                        <img src="images/logo.png" alt="Dr Salih's Dentpark Dental Care" class="logo-img footer-logo-img">
+                        <div class="logo-text">
+                            <span class="logo-dr text-white">Dr Salih's</span>
+                            <span class="logo-clinic text-gold">Dentpark</span>
+                        </div>
                     </a>
                     <p class="footer-text">Crafting confident smiles with precision, care, and artistry. Your premier destination for luxury dental care in Poonoor, Kerala.</p>
                     <div class="social-links">

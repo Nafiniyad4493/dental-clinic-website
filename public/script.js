@@ -161,21 +161,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // -------------------------------------------------------------------------
-    // 3B. DYNAMIC HERO SLIDESHOW CONTROLLER
+    // 3B. DYNAMIC HERO SLIDESHOW CONTROLLER (CONTINUOUS 5-SECOND AUTO-CYCLE)
     // -------------------------------------------------------------------------
-    const heroSlides = document.querySelectorAll('.showcase-slide, .hero-slide');
-    const heroDots = document.querySelectorAll('.showcase-dot, .hero-dot');
-    const heroPrevBtn = document.getElementById('heroPrevBtn');
-    const heroNextBtn = document.getElementById('heroNextBtn');
-    const heroPauseBtn = document.getElementById('heroPauseBtn');
-    const heroShowcase = document.getElementById('heroShowcase') || document.getElementById('heroSlider') || document.getElementById('home');
-    const currentNumEl = document.querySelector('#showcaseCounter .current-num');
+    const heroSlides = document.querySelectorAll('.hero-slide, .showcase-slide');
+    const heroShowcase = document.getElementById('heroSlider') || document.getElementById('home');
 
     if (heroSlides.length > 0) {
         let currentSlide = 0;
         let slideInterval = null;
-        const slideDelay = 4500; // 4.5 seconds
-        let isUserPaused = false;
+        const slideDelay = 5000; // Changes automatically every 5 seconds
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
         const updateSlideView = (index) => {
@@ -190,20 +184,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     slide.setAttribute('aria-hidden', 'true');
                 }
             });
-
-            heroDots.forEach((dot, i) => {
-                if (i === currentSlide) {
-                    dot.classList.add('active');
-                    dot.setAttribute('aria-selected', 'true');
-                } else {
-                    dot.classList.remove('active');
-                    dot.setAttribute('aria-selected', 'false');
-                }
-            });
-
-            if (currentNumEl) {
-                currentNumEl.textContent = String(currentSlide + 1).padStart(2, '0');
-            }
         };
 
         const nextSlide = () => {
@@ -215,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         const startAutoSlide = () => {
-            if (isUserPaused || prefersReducedMotion) return;
+            if (prefersReducedMotion) return;
             stopAutoSlide();
             slideInterval = setInterval(nextSlide, slideDelay);
         };
@@ -232,96 +212,35 @@ document.addEventListener('DOMContentLoaded', () => {
             startAutoSlide();
         };
 
-        // Arrow button click listeners
-        if (heroNextBtn) {
-            heroNextBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                nextSlide();
-                resetTimer();
-            });
-        }
-
-        if (heroPrevBtn) {
-            heroPrevBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                prevSlide();
-                resetTimer();
-            });
-        }
-
-        // Indicator dots click listeners
-        heroDots.forEach((dot, idx) => {
-            dot.addEventListener('click', (e) => {
-                e.preventDefault();
-                updateSlideView(idx);
-                resetTimer();
-            });
-        });
-
-        // Pause / Play button toggle for Accessibility
-        if (heroPauseBtn) {
-            heroPauseBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                isUserPaused = !isUserPaused;
-                if (isUserPaused) {
-                    stopAutoSlide();
-                    heroPauseBtn.innerHTML = '<i class="fa-solid fa-play" aria-hidden="true"></i>';
-                    heroPauseBtn.setAttribute('aria-label', 'Play slideshow');
-                } else {
-                    startAutoSlide();
-                    heroPauseBtn.innerHTML = '<i class="fa-solid fa-pause" aria-hidden="true"></i>';
-                    heroPauseBtn.setAttribute('aria-label', 'Pause slideshow');
-                }
-            });
-        }
-
-        // Pause on mouse hover & focus
+        // Touch Swipe Support for Mobile & Tablets
         if (heroShowcase) {
-            heroShowcase.addEventListener('mouseenter', stopAutoSlide);
-            heroShowcase.addEventListener('mouseleave', () => {
-                if (!isUserPaused) startAutoSlide();
-            });
-            heroShowcase.addEventListener('focusin', stopAutoSlide);
-            heroShowcase.addEventListener('focusout', () => {
-                if (!isUserPaused) startAutoSlide();
-            });
-
-            // Keyboard navigation (Arrow keys when hero showcase has focus)
-            heroShowcase.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowRight') {
-                    nextSlide();
-                    resetTimer();
-                } else if (e.key === 'ArrowLeft') {
-                    prevSlide();
-                    resetTimer();
-                }
-            });
-
-            // Touch Swipe Support for Mobile & Tablets
             let touchStartX = 0;
             let touchEndX = 0;
-            const swipeThreshold = 35;
+            const swipeThreshold = 40;
 
             heroShowcase.addEventListener('touchstart', (e) => {
-                touchStartX = e.changedTouches[0].screenX;
-                stopAutoSlide();
+                if (e.changedTouches && e.changedTouches[0]) {
+                    touchStartX = e.changedTouches[0].screenX;
+                }
             }, { passive: true });
 
             heroShowcase.addEventListener('touchend', (e) => {
-                touchEndX = e.changedTouches[0].screenX;
-                const deltaX = touchEndX - touchStartX;
-                if (Math.abs(deltaX) > swipeThreshold) {
-                    if (deltaX < 0) {
-                        nextSlide(); // Swiped left -> next
-                    } else {
-                        prevSlide(); // Swiped right -> prev
+                if (e.changedTouches && e.changedTouches[0]) {
+                    touchEndX = e.changedTouches[0].screenX;
+                    const deltaX = touchEndX - touchStartX;
+                    if (Math.abs(deltaX) > swipeThreshold) {
+                        if (deltaX < 0) {
+                            nextSlide(); // Swiped left -> next slide
+                        } else {
+                            prevSlide(); // Swiped right -> prev slide
+                        }
+                        resetTimer();
                     }
                 }
-                if (!isUserPaused) startAutoSlide();
             }, { passive: true });
         }
 
-        // Initialize Slideshow
+        // Initialize and Start Slideshow
         updateSlideView(0);
         if (!prefersReducedMotion) {
             startAutoSlide();
